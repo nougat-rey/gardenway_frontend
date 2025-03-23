@@ -25,9 +25,18 @@ const LandingPage = () => {
 
       <main>
         <h2>Welcome to Gardenway</h2>
-        <p>A collection of plants from around the world
-        </p>
+        <p>A collection of plants from around the world</p>
       </main>
+
+      {/* Footer Section */}
+      <footer>
+        <nav className="footer-nav">
+          <Link to="/shop">Shop</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+        </nav>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+      </footer>
     </div>
   );
 };

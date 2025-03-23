@@ -38,7 +38,8 @@ body {
     color: #f8f5e1;
     text-decoration: none;
     margin: 0 15px;
-    font-weight: 500;
+    font-family: 'Roboto', sans-serif;  /* Ensuring the same font family */
+    font-weight: 400;  /* Unbolded links */
     font-size: 16px;
     transition: color 0.3s ease;
   }
@@ -112,49 +113,51 @@ body {
       grid-template-columns: 1fr;  /* Single column on smaller screens */
     }
   }
-
-  /* Hover Effects for Buttons and Links */
-.header .nav a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.header .nav a:hover {
-  color: var(--secondary-green);
-  transform: translateY(-3px);  /* Smooth hover lift effect */
-}
-
-.card:hover {
-  transform: scale(1.05);  /* Slight zoom effect on card hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Footer Styles */
-footer {
-    background-color: var(--primary-green);
-    color: var(--text-light);
-    padding: 30px;
+  
+  /* Footer Styles */
+  footer {
+    background-color: #1d2b3a;  /* Dark blue for footer */
+    color: #f8f5e1;  /* Light text for footer */
+    padding: 30px 0;
     text-align: center;
   }
   
-  footer a {
-    color: var(--text-light);
+  footer nav {
+    margin-bottom: 20px;
+  }
+  
+  footer nav a {
+    color: #f8f5e1;  /* Light color for links */
     text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-    color: var(--secondary-green);
-  }
-  
-  /* Footer Social Media Icons */
-  footer .social-icons {
-    margin-top: 10px;
-  }
-  
-  footer .social-icons a {
     margin: 0 15px;
-    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;  /* Ensure matching font family */
+    font-weight: 400;  /* Unbolded links */
+    font-size: 16px;  /* Same font size as header links */
+  }
+  
+  footer nav a:hover {
+    text-decoration: underline;
+    color: #A0B99D;  /* Soft Sage Green on hover */
+  }
+  
+  footer p {
+    font-size: 14px;
+    color: #f8f5e1;
+  }
+  
+  /* Hover Effects for Buttons and Links */
+  .header .nav a {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .header .nav a:hover {
+    color: #A0B99D;
+    transform: translateY(-3px);  /* Smooth hover lift effect */
+  }
+  
+  .card:hover {
+    transform: scale(1.05);  /* Slight zoom effect on card hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
