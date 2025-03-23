@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #4C9A2A;  /* Earthy Green */
+    background-color: #1d2b3a;
     padding: 15px 30px;
     color: white;
     position: sticky;
@@ -129,4 +129,32 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Footer Styles */
+footer {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 30px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+    color: var(--secondary-green);
+  }
+  
+  /* Footer Social Media Icons */
+  footer .social-icons {
+    margin-top: 10px;
+  }
+  
+  footer .social-icons a {
+    margin: 0 15px;
+    font-size: 1.5rem;
+  }
   
