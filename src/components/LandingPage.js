@@ -1,43 +1,16 @@
 // src/components/LandingPage.js
 import React from 'react';
-import { Link } from 'react-router-dom';  // React Router for navigation
-import './LandingPage.css'; 
+import Layout from './Layout';  // Import Layout component
+import './LandingPage.css';
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
-      <header className="header">
-        <div className="logo">
-          {/* You can replace this with an actual image/logo */}
-          <h1>MyStore</h1>
-        </div>
-        <nav className="nav">
-          <Link to="/about">About Us</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/reviews">Reviews</Link>
-          <Link to="/profile">Profile</Link>
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-          </div>
-          <Link to="/cart">Cart</Link>
-        </nav>
-      </header>
-
+    <Layout>
       <main>
         <h2>Welcome to Gardenway</h2>
         <p>A collection of plants from around the world</p>
       </main>
-
-      {/* Footer Section */}
-      <footer>
-        <nav className="footer-nav">
-          <Link to="/shop">Shop</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact Us</Link>
-        </nav>
-        <p>&copy; 2025 MyStore. All rights reserved.</p>
-      </footer>
-    </div>
+    </Layout>
   );
 };
 

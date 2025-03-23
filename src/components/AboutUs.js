@@ -4,8 +4,8 @@ import React from 'react';
 const AboutUs = () => {
   return (
     <div>
-      <h1>About Us</h1>
-      <p>We are a fictional store that sells amazing products!</p>
+      <h2>About Us</h2>
+      <p>Welcome to our about page. Here's some information about our company.</p>
     </div>
   );
 };

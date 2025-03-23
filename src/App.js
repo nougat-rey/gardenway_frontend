@@ -1,25 +1,30 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Import pages/components
 import LandingPage from './components/LandingPage';
 import AboutUs from './components/AboutUs';
-import Shop from './components/Shop';
-import Reviews from './components/Reviews';
-import Profile from './components/Profile';
 import Cart from './components/Cart';
 import ContactUs from './components/ContactUs';
+import Shop from './components/Shop';
+import Profile from './components/Profile';
+import Reviews from './components/Reviews';
+
+// Layout will be used to wrap the pages with header and footer
+import Layout from './components/Layout';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<Layout><AboutUs /></Layout>} />
+        <Route path="/contact" element={<Layout><ContactUs /></Layout>} />
+        <Route path="/shop" element={<Layout><Shop /></Layout>} />
+        <Route path="/cart" element={<Layout><Cart /></Layout>} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
+        <Route path="/reviews" element={<Layout><Reviews /></Layout>} />
       </Routes>
     </Router>
   );

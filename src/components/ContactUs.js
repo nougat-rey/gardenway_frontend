@@ -1,11 +1,11 @@
-// src/components/AboutUs.js
+// src/components/ContactUs.js
 import React from 'react';
 
 const ContactUs = () => {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>To be added</p>
+      <h2>Contact Us</h2>
+      <p>If you have any questions, feel free to reach out to us via email or phone.</p>
     </div>
   );
 };

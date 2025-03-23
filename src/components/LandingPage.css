@@ -1,67 +1,7 @@
-/* Default body font */
-body {
-    font-family: 'Roboto', sans-serif;  /* Body font */
-    background-color: #f8f5e1;  /* Light beige background */
-    margin: 0;
-    padding: 0;
-    color: #333;  /* Dark text for readability */
-  }
-  
-  /* Header styles */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1d2b3a;
-    padding: 15px 30px;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Header Logo and Navigation */
-  .header .logo h1 {
-    margin: 0;
-    font-family: 'Lora', serif;  /* Logo font */
-    font-size: 2rem;
-    color: #f8f5e1;
-  }
-  
-  .header .nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header .nav a {
-    color: #f8f5e1;
-    text-decoration: none;
-    margin: 0 15px;
-    font-family: 'Roboto', sans-serif;  /* Ensuring the same font family */
-    font-weight: 400;  /* Unbolded links */
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
-  .header .nav a:hover {
-    text-decoration: underline;
-    color: #A0B99D;  /* Soft Sage Green */
-  }
-  
-  .header .search-bar input {
-    padding: 8px;
-    margin-right: 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 14px;
-    background-color: #fff;
-    color: #333;
-    transition: all 0.3s ease;
-  }
-  
-  /* Main content styles */
-  main {
+/* LandingPage.css */
+
+/* Main content styles */
+main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Responsive grid */
     gap: 20px;
@@ -98,66 +38,17 @@ body {
     margin-top: 15px;
   }
   
-  /* Responsive design adjustments */
-  @media (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .header .nav {
-      margin-top: 15px;
-    }
-  
-    main {
-      grid-template-columns: 1fr;  /* Single column on smaller screens */
-    }
-  }
-  
-  /* Footer Styles */
-  footer {
-    background-color: #1d2b3a;  /* Dark blue for footer */
-    color: #f8f5e1;  /* Light text for footer */
-    padding: 30px 0;
-    text-align: center;
-  }
-  
-  footer nav {
-    margin-bottom: 20px;
-  }
-  
-  footer nav a {
-    color: #f8f5e1;  /* Light color for links */
-    text-decoration: none;
-    margin: 0 15px;
-    font-family: 'Roboto', sans-serif;  /* Ensure matching font family */
-    font-weight: 400;  /* Unbolded links */
-    font-size: 16px;  /* Same font size as header links */
-  }
-  
-  footer nav a:hover {
-    text-decoration: underline;
-    color: #A0B99D;  /* Soft Sage Green on hover */
-  }
-  
-  footer p {
-    font-size: 14px;
-    color: #f8f5e1;
-  }
-  
-  /* Hover Effects for Buttons and Links */
-  .header .nav a {
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .header .nav a:hover {
-    color: #A0B99D;
-    transform: translateY(-3px);  /* Smooth hover lift effect */
-  }
-  
+  /* Hover Effects for Cards */
   .card:hover {
     transform: scale(1.05);  /* Slight zoom effect on card hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Responsive design adjustments for main content */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;  /* Single column on smaller screens */
+    }
   }
   
