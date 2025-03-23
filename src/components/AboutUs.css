@@ -1,0 +1,80 @@
+/* AboutUs.css */
+
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* Container for the About Us content */
+.about-us-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px); /* Start below */
+  animation: slideInUp 1s forwards;  /* Apply the slide-up effect */
+}
+
+/* Keyframe animation to slide the container up */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* Title Styling */
+.about-title {
+  font-family: 'Playfair Display', serif;  /* Apply Playfair Display font */
+  font-size: 3rem;  /* Larger font size for the title */
+  font-weight: 550;  /* Bold weight */
+  color: #1d2b3a;  /* Dark color for contrast */
+  margin-bottom: 20px;
+  line-height: 1.2;
+  opacity: 0;  /* Initially invisible */
+  transform: translateY(30px); /* Start below */
+  animation: titleSlideInUp 1s ease-out 0.5s forwards;  /* Delay the title's animation */
+}
+
+/* Keyframe animation for the title to slide up */
+@keyframes titleSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* Description Styling */
+.about-description {
+  font-family: 'Roboto', sans-serif;  /* Apply Roboto font for the body text */
+  font-size: 1rem;  /* Slightly larger font size for better readability */
+  color: #777;  /* Lighter gray color for the description text */
+  line-height: 1.6;
+  margin-top: 20px;
+  opacity: 0; /* Initially invisible */
+  transform: translateY(30px); /* Start below */
+  animation: descriptionSlideInUp 1s ease-out 1s forwards;  /* Delay the description's animation */
+}
+
+/* Keyframe animation for the description to slide up */
+@keyframes descriptionSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
