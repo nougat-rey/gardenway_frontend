@@ -7,8 +7,8 @@
 .about-us-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
-  text-align: center;
+  padding: 80px 80px;  /* Increased padding on left and right for more space */
+  text-align: left;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
