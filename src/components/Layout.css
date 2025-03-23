@@ -52,8 +52,9 @@ body {
     margin: 0 15px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;  /* Unbolded links */
-    font-size: 16px;
+    font-size: 13px;
     transition: color 0.3s ease;
+    text-transform: uppercase;
   }
   
   .header .nav a:hover {
@@ -66,7 +67,7 @@ body {
     margin-right: 20px;
     border: none;
     border-radius: 25px;
-    font-size: 14px;
+    font-size: 13px;
     background-color: #fff;
     color: #333;
     transition: all 0.3s ease;
@@ -110,7 +111,7 @@ body {
   }
   
   footer p {
-    font-size: 14px;
+    font-size: 13px;
     color: #f8f5e1;
   }
   

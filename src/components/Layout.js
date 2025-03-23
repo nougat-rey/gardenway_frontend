@@ -14,10 +14,10 @@ const Layout = ({ children }) => {
           <Link to="/about">About Us</Link>
           <Link to="/shop">Shop</Link>
           <Link to="/reviews">Reviews</Link>
-          <Link to="/profile">Profile</Link>
           <div className="search-bar">
             <input type="text" placeholder="Search..." />
           </div>
+          <Link to="/profile">Profile</Link>
           <Link to="/cart">Cart</Link>
         </nav>
       </header>
