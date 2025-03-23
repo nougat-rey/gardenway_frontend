@@ -10,6 +10,7 @@ import ContactUs from './components/ContactUs';
 import Shop from './components/Shop';
 import Profile from './components/Profile';
 import Reviews from './components/Reviews';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Layout will be used to wrap the pages with header and footer
 import Layout from './components/Layout';
