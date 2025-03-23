@@ -1,19 +1,29 @@
 /* src/components/LandingPage.css */
-.landing-page {
-    font-family: Arial, sans-serif;
+
+/* Default body font */
+body {
+    font-family: 'Roboto', sans-serif;  /* Body font (Roboto) */
+    background-color: #f8f5e1;  /* Light beige background, inspired by Satya's color scheme */
+    margin: 0;
+    padding: 0;
+    color: #333;  /* Dark text for readability */
   }
   
+  /* Header styles */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
+    background-color: #573c2e;
+    padding: 15px 30px;
     color: white;
   }
   
   .header .logo h1 {
     margin: 0;
+    font-family: 'Lora', serif;  /* Lora for the logo, matching the brand's elegant look */
+    font-size: 2rem;
+    color: #f8f5e1;  /* Soft off-white for logo text */
   }
   
   .header .nav {
@@ -22,40 +32,106 @@
   }
   
   .header .nav a {
-    color: white;
+    color: #f8f5e1;  /* Off-white text for nav links */
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px;
+    font-family: 'Roboto', sans-serif;  /* Use Roboto for header links */
+    font-weight: 500; /* Medium weight */
     font-size: 16px;
+    transition: color 0.3s ease;
   }
   
   .header .nav a:hover {
     text-decoration: underline;
+    color: #d49a6a;  /* Soft gold color on hover */
   }
   
   .header .search-bar input {
-    padding: 5px;
+    padding: 8px;
     margin-right: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
   }
   
-  header a:hover {
-    color: #ff6347;  /* Highlight color when hovering over links */
+  .header .search-bar input:focus {
+    border: 2px solid #d49a6a;  /* Soft gold outline on focus */
   }
   
+  /* Main content styles */
   main {
     text-align: center;
     padding: 50px;
-    background-color: #f4f4f4;
+    background-color: #f8f5e1;  /* Light beige background */
   }
   
   main h2 {
+    font-family: 'Lora', serif;  /* Serif font for headings */
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #1d2b3a;  /* Dark text for headings */
   }
   
   main p {
     font-size: 1.2rem;
+    color: #333;  /* Dark text for paragraphs */
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #1d2b3a;  /* Dark navy blue for the footer */
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+    color: #d49a6a;  /* Soft gold hover effect */
+  }
+  
+  /* Hover effects */
+  header a {
+    transition: color 0.3s ease;
+  }
+  
+  header a:hover {
+    color: #d49a6a;  /* Soft gold */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .header .nav {
+      margin-top: 15px;
+    }
+  
+    .header .search-bar input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    main h2 {
+      font-size: 2rem;  /* Adjust heading size for smaller screens */
+    }
+  
+    main p {
+      font-size: 1rem;  /* Adjust paragraph size */
+    }
   }
   

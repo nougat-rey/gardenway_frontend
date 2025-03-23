@@ -24,8 +24,8 @@ const LandingPage = () => {
       </header>
 
       <main>
-        <h2>Welcome to MyStore!</h2>
-        <p>Your favorite place to shop the best products!</p>
+        <h2>Welcome to Gardenway</h2>
+        <p>A collection of plants from around the world</p>
       </main>
     </div>
   );
