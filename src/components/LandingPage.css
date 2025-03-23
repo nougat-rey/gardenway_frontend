@@ -3,7 +3,7 @@
 /* Default body font */
 body {
     font-family: 'Roboto', sans-serif;  /* Body font (Roboto) */
-    background-color: #f8f5e1;  /* Light beige background, inspired by Satya's color scheme */
+    background-color: #f8f5e1;  /* Light beige background */
     margin: 0;
     padding: 0;
     color: #333;  /* Dark text for readability */
@@ -14,16 +14,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #573c2e;
+    background-color: #55402a;  /* Earthy Green background for the header */
     padding: 15px 30px;
     color: white;
+    
+    /* Sticky header styles */
+    position: sticky;
+    top: 0;  /* Stick to the top of the page */
+    z-index: 1000;  /* Ensure the header is above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Optional: Adds a soft shadow to the header for better visibility */
   }
   
   .header .logo h1 {
     margin: 0;
-    font-family: 'Lora', serif;  /* Lora for the logo, matching the brand's elegant look */
+    font-family: 'Lora', serif;  /* Lora for the logo */
     font-size: 2rem;
-    color: #f8f5e1;  /* Soft off-white for logo text */
+    color: #f8f5e1;  /* Soft off-white for the logo */
   }
   
   .header .nav {
@@ -43,7 +49,7 @@ body {
   
   .header .nav a:hover {
     text-decoration: underline;
-    color: #d49a6a;  /* Soft gold color on hover */
+    color: #A0B99D;  /* Soft Sage Green on hover */
   }
   
   .header .search-bar input {
@@ -58,7 +64,7 @@ body {
   }
   
   .header .search-bar input:focus {
-    border: 2px solid #d49a6a;  /* Soft gold outline on focus */
+    border: 2px solid #A0B99D;  /* Soft Sage Green outline on focus */
   }
   
   /* Main content styles */
@@ -84,7 +90,7 @@ body {
   
   /* Footer styles */
   footer {
-    background-color: #1d2b3a;  /* Dark navy blue for the footer */
+    background-color: #4C9A2A;  /* Earthy Green footer */
     color: white;
     padding: 20px;
     text-align: center;
@@ -98,7 +104,7 @@ body {
   
   footer a:hover {
     text-decoration: underline;
-    color: #d49a6a;  /* Soft gold hover effect */
+    color: #A0B99D;  /* Soft Sage Green hover effect */
   }
   
   /* Hover effects */
@@ -107,7 +113,7 @@ body {
   }
   
   header a:hover {
-    color: #d49a6a;  /* Soft gold */
+    color: #A0B99D;  /* Soft Sage Green */
   }
   
   /* Responsive design */

@@ -25,7 +25,8 @@ const LandingPage = () => {
 
       <main>
         <h2>Welcome to Gardenway</h2>
-        <p>A collection of plants from around the world</p>
+        <p>A collection of plants from around the world
+        </p>
       </main>
     </div>
   );
