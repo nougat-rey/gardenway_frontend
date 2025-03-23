@@ -8,8 +8,9 @@ const Layout = ({ children }) => {
     <div className="layout">
       <header className="header">
         <div className="logo">
-          {/* Use img tag for the logo */}
-          <img src={logo} alt="MyStore Logo" className="logo-img" />
+          <Link to="/">
+            <img src={logo} alt="MyStore Logo" className="logo-img" />
+          </Link>
         </div>
         <nav className="nav">
           <Link to="/about">About Us</Link>
