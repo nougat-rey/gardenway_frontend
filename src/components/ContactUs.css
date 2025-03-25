@@ -1,0 +1,33 @@
+/* ContactUs.css */
+
+/* Overall container styling */
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Title Styling */
+.contact-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Contact Info Styling */
+.contact-info {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.contact-info strong {
+  font-weight: 600;
+  color: #1d2b3a;
+}
