@@ -1,0 +1,75 @@
+.shop {
+    padding: 20px;
+  }
+  
+  .shop h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .shop-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .shop-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .shop-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .shop-info {
+    margin-top: 10px;
+  }
+  
+  .shop-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .shop-price {
+    font-size: 1.1em;
+    color: #3f3f3f;
+    margin-top: 5px;
+  }
+  
+  .shop-inventory {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  .shop-reviews {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .no-image {
+    width: 100%;
+    height: 200px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+  }
+  

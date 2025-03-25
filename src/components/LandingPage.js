@@ -8,7 +8,7 @@ const LandingPage = () => {
     <Layout>
       <main>
         <h2>Welcome to Gardenway</h2>
-        <p>A collection of plants from around the world</p>
+        <p>Sharing the inspiration I’ve found in nature’s wonders into your garden.</p>
       </main>
     </Layout>
   );
