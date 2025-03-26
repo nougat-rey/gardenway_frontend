@@ -3,10 +3,10 @@
 /* Ensure the body or wrapper is a flex container */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f5e1;
+    background-color: #C1D8C5;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #6E7F7A;
     display: flex;
     flex-direction: column;  /* Stack header, main, and footer vertically */
     height: 100vh;  /* Full viewport height */
@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1d2b3a;
+    background-color: #2F4F4F;
     padding: 15px 30px;
     color: white;
     position: sticky;
@@ -89,13 +89,13 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Responsive grid */
     gap: 20px;
     padding: 50px;
-    background-color: #f8f5e1;
+    background-color: #6E7F7A;
     flex-grow: 1;  /* This allows the main section to take up available space */
 }
   
 /* Footer Styles */
 footer {
-    background-color: #1d2b3a;  /* Dark blue for footer */
+    background-color: #2F4F4F;
     color: #f8f5e1;  /* Light text for footer */
     padding: 30px 0;
     text-align: center;
