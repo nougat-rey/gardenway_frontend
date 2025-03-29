@@ -7,7 +7,7 @@ const AboutUs = () => {
     <div className="about-us-container">
       <h2 className="about-title">My Story</h2>
         <p className="about-description">
-            This site was born from my love for plants and the beautiful flora I encountered during my travels. Along the way, I discovered unique plants that left a lasting impression—whether it was the vibrant greenery of Vietnam, the peaceful gardens of Japan, the rich diversity of Madeira, or the hardy beauty of Iceland’s wildflowers. Each place shaped my view of nature, and I wanted to share that inspiration with you.
+        This site was born from my love for plants and the beautiful flora I encountered during my travels. Along the way, I discovered unique plants that left a lasting impression—whether it was the vibrant greenery of Vietnam, the peaceful gardens of Japan, the rich diversity of Madeira, the hardy beauty of Iceland’s wildflowers, or the awe-inspiring landscapes of Yosemite. Each place shaped my view of nature, and I wanted to share that inspiration with you.
         </p>
         <p className="about-description">
             At Gardenway, you’ll find plants and seeds influenced by these regions—each one telling its own story of resilience, beauty, and discovery. Whether you’re looking to recreate the tranquility of a Japanese garden or the striking landscapes of Iceland, I hope you’ll find something that resonates with you.

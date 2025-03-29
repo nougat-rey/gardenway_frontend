@@ -26,7 +26,7 @@ const LandingPage = () => {
       <main>
         <div className="intro-section">
           <h2>Welcome to Gardenway</h2>
-          <p>Sharing the inspiration I’ve found in nature’s wonders into your garden.</p>
+          <p>Sharing the inspiration I’ve found in nature’s wonders with your garden.</p>
         </div>
 
         {/* Collection Cards Grid */}
