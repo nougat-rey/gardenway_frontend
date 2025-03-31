@@ -8,24 +8,36 @@ main {
     gap: 20px;
     padding: 50px;
     background-color: #C1D8C5;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   .intro-section {
     text-align: center;
     max-width: 800px;
     margin-bottom: 40px; /* Adds spacing below header & description */
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   main h2 {
     font-family: 'Lora', serif;
     font-size: 2.5rem;
     color: #1d2b3a;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   main p {
     font-size: 1.2rem;
     color: #333;
     line-height: 1.5;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   .card {
@@ -34,16 +46,25 @@ main {
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   .card img {
     width: 100%;
     border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   .card h3 {
     font-size: 1.5rem;
     margin-top: 15px;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   /* Hover Effects for Cards */
@@ -58,6 +79,9 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
 
   /* Collection Cards Grid */
@@ -76,6 +100,9 @@ main {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
   }
   
   .collection-card img {
