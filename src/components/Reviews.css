@@ -1,0 +1,120 @@
+/* Reviews Page Layout */
+.reviews-page {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+  
+  }
+  
+  /* Container for All Products */
+  .reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Show 3 cards per row */
+    gap: 30px; /* Adjust the spacing between cards */
+    justify-items: center; /* Center the cards within their columns */
+    padding: 0;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+  
+  }
+  
+  /* Product Review Card */
+  .product-review-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%; /* Ensure the card takes up the full width of its grid column */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(30px); /* Start below */
+    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+  
+  }
+  
+  .product-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .product-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 10px;
+  } 
+  
+  /* Reviews Section */
+  .reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .review-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .review-author {
+    font-weight: bold;
+  }
+  
+  .review-date {
+    color: #888;
+  }
+  
+  .review-description p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .reviews-container {
+      grid-template-columns: repeat(2, 1fr); /* Show 2 cards per row on smaller screens */
+    }
+  
+    .product-review-card {
+      width: 100%; /* Ensure the card still takes up the full width in 2-column grid */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .reviews-container {
+      grid-template-columns: 1fr; /* Show 1 card per row on mobile screens */
+    }
+  
+    .product-review-card {
+      width: 100%; /* Ensure the card takes full width on mobile */
+    }
+  }
+  
