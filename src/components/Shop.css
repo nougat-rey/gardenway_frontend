@@ -84,6 +84,7 @@ body {
   opacity: 0;
   transform: translateY(30px); /* Start below */
   animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+  text-decoration: none !important;  /* Remove underlines */
 }
 
 /* Keyframe animation for product cards to slide up */
@@ -96,12 +97,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Hover Effect for Product Cards */
-.shop-card:hover {
-  transform: translateY(-5px); /* Lift the card */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Add more shadow on hover */
 }
 
 /* Product Image Styling */

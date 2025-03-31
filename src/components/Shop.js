@@ -1,6 +1,6 @@
-// src/components/Shop.js
 import React, { useState, useEffect, useRef } from 'react';  
 import axios from 'axios';  
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './Shop.css';
 
 const Shop = () => {
@@ -65,11 +65,12 @@ const Shop = () => {
       <h1>Shop</h1>
       <div className="shop-grid">
         {products.map((product, index) => (
-          <div
-            className={`shop-card ${visibleCards.has(String(product.id)) ? 'fade-in' : ''}`}
+          <Link 
+            to={`http://localhost:3000/product/${product.id}/`} // Link to the specific product page
             key={product.id}
             id={String(product.id)}
             ref={(el) => productRefs.current[index] = el}
+            className={`shop-card ${visibleCards.has(String(product.id)) ? 'fade-in' : ''}`}
           >
             <div className="shop-image">
               {product.images.length > 0 ? (
@@ -90,7 +91,7 @@ const Shop = () => {
               <p className="shop-price">${product.price}</p>
               <p className="shop-inventory">In Stock: {product.inventory}</p>
             </div>
-          </div>
+          </Link> // Use Link component to make the entire card clickable
         ))}
       </div>
     </div>
