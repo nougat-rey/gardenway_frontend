@@ -10,6 +10,7 @@ import ContactUs from './components/ContactUs';
 import Shop from './components/Shop';
 import Profile from './components/Profile';
 import Reviews from './components/Reviews';
+import ProductPage from './components/ProductPage';
 import 'font-awesome/css/font-awesome.min.css';
 
 // Layout will be used to wrap the pages with header and footer
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/cart" element={<Layout><Cart /></Layout>} />
         <Route path="/profile" element={<Layout><Profile /></Layout>} />
         <Route path="/reviews" element={<Layout><Reviews /></Layout>} />
+        <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
       </Routes>
     </Router>
   );

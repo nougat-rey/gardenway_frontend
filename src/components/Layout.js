@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Layout.css';  // Add styles for the layout
-import logo from '../assets/logo.png';  // Import the logo from the assets folder
+import './Layout.css';
+import logo from '../assets/logo.png';
 
 const Layout = ({ children }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/store/products/')
+      .then(response => response.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
+
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setFilteredProducts([]);
+    } else {
+      const filtered = products.filter(product =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    }
+  }, [searchQuery, products]);
+
   return (
     <div className="layout">
       <header className="header">
@@ -17,23 +39,33 @@ const Layout = ({ children }) => {
           <Link to="/shop">Shop</Link>
           <Link to="/reviews">Reviews</Link>
           <div className="search-bar">
-            <input type="text" placeholder="Search..." />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {filteredProducts.length > 0 && (
+              <ul className="search-results">
+                {filteredProducts.map(product => (
+                  <li key={product.id}>
+                    <Link to={`/product/${product.id}`}>{product.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <Link to="/profile">
-            <i className="fa fa-user" aria-hidden="true"></i> {/* Profile Icon */}
+            <i className="fa fa-user" aria-hidden="true"></i>
           </Link>
           <Link to="/cart">
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i> {/* Cart Icon */}
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </Link>
         </nav>
       </header>
 
-      {/* Main Content */}
-      <main>
-        {children}  {/* This is where page-specific content will go */}
-      </main>
+      <main>{children}</main>
 
-      {/* Footer */}
       <footer>
         <nav>
           <Link to="/shop">Shop</Link>
