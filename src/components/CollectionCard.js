@@ -25,7 +25,7 @@ const CollectionCard = ({ collection }) => {
     <div className="collection-card">
       <img src={`http://localhost:8000${productImage}`} alt={collection.title} />
       <h3>{collection.title}</h3> {/* Only displaying the title */}
-      <p>{collection.products_count} products</p> {/* No slug displayed */}
+      <p>{collection.products_count} products</p> {/* Displaying the product count */}
     </div>
   );
 };

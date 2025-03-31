@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Layout from './Layout';  // Import Layout component
 import CollectionCard from './CollectionCard'; // Import CollectionCard
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -33,7 +34,13 @@ const LandingPage = () => {
         <div className="collections-container">
           <div className="collections-grid">
             {collections.map((collection) => (
-              <CollectionCard key={collection.id} collection={collection} /> // Pass each collection to CollectionCard
+              <Link
+                key={collection.id}
+                to={`/collection/${collection.id}`}  // Link to the collection page
+                className="collection-card-link"  // Optional class for styling the link
+              >
+                <CollectionCard collection={collection} />
+              </Link>
             ))}
           </div>
         </div>

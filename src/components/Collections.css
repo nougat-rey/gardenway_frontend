@@ -1,0 +1,160 @@
+/* Collections.css */
+
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* General Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #C1D8C5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Collections Container */
+.collections {
+  width: 100%;
+  max-width: 900px;  /* Cap the width at 900px */
+  margin: 0 auto;
+  padding: 100px 60px;  /* Increase padding for more space around content */
+  text-align: center;
+  background-color: #c8efe3;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px); /* Start below */
+  animation: collectionsSlideInUp 1s forwards; /* Apply the slide-up effect */
+}
+
+/* Keyframe animation for collections page to slide up */
+@keyframes collectionsSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* Collections Title Styling */
+.collections h1 {
+  font-family: 'Playfair Display', serif;  /* Apply Playfair Display font */
+  font-size: 3rem;  /* Larger font size for the title */
+  font-weight: 550;  /* Bold weight */
+  color: #1d2b3a;  /* Dark color for contrast */
+  margin-bottom: 20px;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px); /* Start below */
+  animation: titleSlideInUp 1s ease-out 0.5s forwards; /* Delay the title's animation */
+}
+
+/* Keyframe animation for the title to slide up */
+@keyframes titleSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Collections Grid for Product Cards */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensure the grid is responsive */
+  gap: 30px; /* Add space between items */
+  margin-top: 40px;
+  justify-content: center; /* Center the grid */
+}
+
+/* Collection Card Styling */
+.collection-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px); /* Start below */
+  animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+  text-decoration: none !important;  /* Remove underlines */
+}
+
+/* Keyframe animation for collection cards to slide up */
+@keyframes cardSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Image Styling */
+.collection-image img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.collection-image .no-image {
+  width: 100%;
+  height: 250px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* Product Title, Price, and Inventory Styling */
+.collection-info {
+  text-align: left;
+}
+
+/* Product Title */
+.collection-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d2b3a;
+  margin-bottom: 8px;
+}
+
+/* Product Price */
+.collection-price {
+  font-size: 1.1rem;
+  color: #1d2b3a;
+  font-weight: 500;
+}
+
+/* Product Inventory */
+.collection-inventory {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .collections h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Make the collections container responsive on smaller screens */
+  .collections {
+    padding: 60px 20px;  /* Decrease padding for small screens */
+    max-width: 100%;  /* Full width on smaller screens */
+  }
+}

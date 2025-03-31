@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,6 +10,7 @@ import Shop from './components/Shop';
 import Profile from './components/Profile';
 import Reviews from './components/Reviews';
 import ProductPage from './components/ProductPage';
+import Collections from './components/Collections'; // Import the Collections page
 import 'font-awesome/css/font-awesome.min.css';
 
 // Layout will be used to wrap the pages with header and footer
@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/profile" element={<Layout><Profile /></Layout>} />
         <Route path="/reviews" element={<Layout><Reviews /></Layout>} />
         <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
+        <Route path="/collection/:id" element={<Layout><Collections /></Layout>} /> {/* Add route for collection */}
       </Routes>
     </Router>
   );
