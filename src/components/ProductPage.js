@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom"; // to access the product's id from URL
+import './ProductPage.css';  // Import the CSS file
 
 const ProductPage = () => {
   const { id } = useParams();  // Grab the id from the URL parameters
@@ -41,10 +42,10 @@ const ProductPage = () => {
             alt={product.title}
             onError={(e) => (e.target.src = "http://localhost:3000/banner.png")} // Fallback image
           />
-          <p>Price: ${product.price}</p>
-          <p>Inventory: {product.inventory}</p>
-          <p>{product.price_with_tax ? `Price with Tax: $${product.price_with_tax}` : null}</p>
-          <div>
+          <p className="product-price">Price: ${product.price}</p>
+          <p className="product-inventory">Inventory: {product.inventory}</p>
+          <p className="product-tax">{product.price_with_tax ? `Price with Tax: $${product.price_with_tax}` : null}</p>
+          <div className="product-reviews">
             <h3>Reviews</h3>
             {product.reviews && product.reviews.length > 0 ? (
               product.reviews.map((review) => (

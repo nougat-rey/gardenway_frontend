@@ -1,0 +1,188 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* General Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #C1D8C5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Product Page Container */
+.product-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;  /* Add more spacing for a larger container */
+  text-align: center;
+  background-color: #c8efe3;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px); /* Start below */
+  animation: pageSlideInUp 1s forwards; /* Apply the slide-up effect */
+}
+
+/* Keyframe animation for product page to slide up */
+@keyframes pageSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Title Styling */
+.product-page h2 {
+  font-family: 'Playfair Display', serif;  /* Apply Playfair Display font */
+  font-size: 2.5rem;  /* Larger font size for the title */
+  font-weight: 700;
+  color: #1d2b3a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px); /* Start below */
+  animation: titleSlideInUp 1s ease-out 0.5s forwards; /* Delay the title's animation */
+}
+
+/* Keyframe animation for the title to slide up */
+@keyframes titleSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Card Styling */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px); /* Start below */
+  animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
+}
+
+/* Keyframe animation for product card to slide up */
+@keyframes cardSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Image Styling */
+.product-card img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-card .no-image {
+  width: 100%;
+  height: 350px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* Product Info Section Styling */
+.product-info {
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+}
+
+.product-info p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Product Price, Inventory and Tax */
+.product-price {
+  font-size: 1.25rem;
+  color: #1d2b3a;
+  font-weight: bold;
+}
+
+.product-inventory {
+  font-size: 1rem;
+  color: #777;
+}
+
+.product-tax {
+  font-size: 1.1rem;
+  color: #1d2b3a;
+  font-weight: 500;
+}
+
+/* Reviews Section */
+.product-reviews {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.product-reviews h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d2b3a;
+}
+
+.product-reviews div {
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.product-reviews p {
+  margin: 5px 0;
+}
+
+.product-reviews p strong {
+  font-weight: bold;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .product-page {
+    padding: 60px 20px;
+  }
+
+  .product-page h2 {
+    font-size: 2rem;
+  }
+
+  .product-card img {
+    max-height: 250px;
+  }
+
+  .product-price {
+    font-size: 1.2rem;
+  }
+
+  .product-info p {
+    font-size: 1rem;
+  }
+}
