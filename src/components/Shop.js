@@ -49,14 +49,6 @@ const Shop = () => {
     };
   }, [isFetched]);  // Only run when `isFetched` changes (i.e., once on initial load)
 
-  const getReviewPreview = (review) => {
-    if (!review || !review.description) return null;
-    const maxLength = 100; 
-    return review.description.length > maxLength
-      ? review.description.substring(0, maxLength) + "..."
-      : review.description;
-  };
-
   const buildImageUrl = (imagePath) => {
     // Check if the imagePath already contains 'http://localhost:8000/media/'
     if (imagePath.startsWith('http://localhost:8000/media/')) {
@@ -97,13 +89,6 @@ const Shop = () => {
               <h3 className="shop-title">{product.title}</h3>
               <p className="shop-price">${product.price}</p>
               <p className="shop-inventory">In Stock: {product.inventory}</p>
-            </div>
-            <div className="shop-reviews">
-              {product.reviews.length > 0 ? (
-                <p><strong>Review:</strong> {getReviewPreview(product.reviews[0])}</p>
-              ) : (
-                <p>No reviews yet</p>
-              )}
             </div>
           </div>
         ))}

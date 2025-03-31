@@ -14,17 +14,19 @@ body {
 
 /* Shop Container */
 .shop {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;  /* Add more spacing for a larger container */
-  text-align: center;
-  background-color: #c8efe3;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Start invisible */
-  transform: translateY(30px); /* Start below */
-  animation: shopSlideInUp 1s forwards; /* Apply the slide-up effect */
-}
+    width: 100%;
+    max-width: 900px;  /* Cap the width at 1600px */
+    margin: 0 auto;
+    padding: 100px 60px;  /* Increase padding for more space around content */
+    text-align: center;
+    background-color: #c8efe3;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start invisible */
+    transform: translateY(30px); /* Start below */
+    animation: shopSlideInUp 1s forwards; /* Apply the slide-up effect */
+  }
+  
 
 /* Keyframe animation for shop page to slide up */
 @keyframes shopSlideInUp {
@@ -66,9 +68,10 @@ body {
 /* Shop Grid for Product Cards */
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensure the grid is responsive */
+  gap: 30px; /* Add space between items */
   margin-top: 40px;
+  justify-content: center; /* Center the grid */
 }
 
 /* Shop Card Styling */
@@ -122,66 +125,42 @@ body {
   font-size: 18px;
 }
 
-/* Product Title, Price, and Reviews Styling */
+/* Product Title, Price, and Inventory Styling */
 .shop-info {
   text-align: left;
 }
-/* Reduced font-size for less visual intensity */
 
 /* Product Title */
 .shop-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;  /* Reduced size */
-    font-weight: 700;
-    color: #1d2b3a;
-    margin-bottom: 8px;  /* Slightly smaller margin */
-  }
-  
-  /* Product Price */
-  .shop-price {
-    font-size: 1.1rem;  /* Reduced size */
-    color: #1d2b3a;
-    font-weight: 500;
-  }
-  
-  /* Product Inventory */
-  .shop-inventory {
-    font-size: 0.9rem;  /* Reduced size */
-    color: #777;
-  }
-  
-/* Make sure the review font size is applied correctly */
-.shop-reviews {
-    margin-top: 12px;  /* Slightly smaller margin */
-    font-size: 0.85rem !important;  /* Force the font size change with !important */
-    color: #777;
-  }
-  
-  
-
-.shop-reviews p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d2b3a;
+  margin-bottom: 8px;
 }
 
-/* Animation for review preview */
-@keyframes reviewSlideInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Product Price */
+.shop-price {
+  font-size: 1.1rem;
+  color: #1d2b3a;
+  font-weight: 500;
 }
 
-.shop-card .review-preview {
-  animation: reviewSlideInUp 1s ease-out forwards;
+/* Product Inventory */
+.shop-inventory {
+  font-size: 0.9rem;
+  color: #777;
 }
 
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
   .shop h1 {
     font-size: 2.5rem;
+  }
+
+  /* Make the shop container responsive on smaller screens */
+  .shop {
+    padding: 60px 20px;  /* Decrease padding for small screens */
+    max-width: 100%;  /* Full width on smaller screens */
   }
 }
