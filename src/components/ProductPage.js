@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Import Link here
 import './ProductPage.css'; // Import the CSS file
 
 const ProductPage = () => {
@@ -44,7 +44,7 @@ const ProductPage = () => {
       const collection = collections.find((col) =>
         col.products.includes(product.id)
       );
-      setProductCollection(collection ? collection.title : "Unknown Collection");
+      setProductCollection(collection ? collection : null);
     }
   }, [product, collections]);
 
@@ -78,8 +78,13 @@ const ProductPage = () => {
             />
           </div>
           <div className="product-details">
-            {productCollection && (
-              <div className="product-collection">{productCollection}</div>
+            {productCollection && productCollection.title && (
+              <div className="product-collection">
+                {/* Wrap the collection text with a Link */}
+                <Link to={`/collection/${productCollection.id}`} className="collection-link">
+                  {productCollection.title}
+                </Link>
+              </div>
             )}
             <div className="product-title">{product.title}</div>
             <div className="product-price">Price: ${product.price}</div>

@@ -58,7 +58,6 @@
   margin-bottom: 10px;
 }
 
-/* Wrap text elements in div for better formatting control */
 .product-collection,
 .product-price,
 .product-inventory,
@@ -70,14 +69,14 @@
 }
 
 .product-collection {
-  text-transform: uppercase; /* Make the collection text uppercase */
+  text-transform: uppercase;
 }
 
 .product-collection div,
 .product-price div,
 .product-inventory div,
 .product-tax div {
-  margin-bottom: 8px; /* Space between each div element */
+  margin-bottom: 8px;
 }
 
 .add-to-cart {
@@ -90,14 +89,13 @@
   cursor: pointer;
   margin-top: 20px;
   width: 100%;
-  max-width: 400px; /* Limiting the button's max width */
+  max-width: 400px;
 }
 
 .add-to-cart:hover {
   background-color: #203737;
 }
 
-/* Reviews Section - Styled Like Review Page */
 .product-reviews {
   margin-top: 30px;
 }
@@ -117,7 +115,7 @@
 }
 
 .review-card {
-  background-color: #f5f8f3; /* Lighter background color for review card */
+  background-color: #f5f8f3;
   border-radius: 10px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -155,17 +153,12 @@
   font-style: italic;
 }
 
-/* Divider Style */
 .divider {
   height: 1px;
-  background-color: #ccc; /* Light gray color */
-  margin: 40px 0; /* Space around the divider */
+  background-color: #ccc;
+  margin: 40px 0;
 }
 
-/* Other styles remain unchanged */
-
-
-/* Quantity Selector */
 .quantity-selector {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -183,25 +176,22 @@
   text-align: center;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .reviews-list {
     gap: 16px;
   }
 
-
-/* Product Page */
-.product-page {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 40px 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: pageSlideInUp 1s forwards;
-}
+  .product-page {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: pageSlideInUp 1s forwards;
+  }
 
   .product-content {
     flex-direction: column;
@@ -227,4 +217,14 @@
   .add-to-cart {
     width: 100%;
   }
+}
+
+.collection-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.collection-link:hover {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
 }
