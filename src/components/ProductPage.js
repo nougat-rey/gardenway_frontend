@@ -10,6 +10,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [productCollection, setProductCollection] = useState(null);
+  const [quantity, setQuantity] = useState(1); // Quantity state
 
   useEffect(() => {
     setLoading(true); // Start loading whenever the component re-renders
@@ -47,6 +48,16 @@ const ProductPage = () => {
     }
   }, [product, collections]);
 
+  const handleQuantityChange = (e) => {
+    const newQuantity = Math.max(1, Math.min(e.target.value, product.inventory));
+    setQuantity(newQuantity); // Update quantity while preventing over-buying
+  };
+
+  const handleAddToCart = () => {
+    // Handle Add to Cart logic (e.g., saving to local storage, state, or backend)
+    alert(`Added ${quantity} ${product.title} to your cart!`);
+  };
+
   if (loading) {
     return <div>Loading...</div>; // Show loading message while data is being fetched
   }
@@ -68,31 +79,59 @@ const ProductPage = () => {
           </div>
           <div className="product-details">
             {productCollection && (
-              <p className="product-collection">{productCollection}</p>
+              <div className="product-collection">{productCollection}</div>
             )}
-            <h2>{product.title}</h2>
-            <p className="product-price">Price: ${product.price}</p>
-            <p className="product-inventory">Inventory: {product.inventory}</p>
-            {product.price_with_tax && <p className="product-tax">Price with Tax: ${product.price_with_tax}</p>}
-            
-            <div className="product-reviews">
-              <h3>Reviews</h3>
-              {product.reviews && product.reviews.length > 0 ? (
-                product.reviews.map((review) => (
-                  <div key={review.name}>
-                    <p><strong>{review.name}</strong>:</p>
-                    <p>{review.description}</p>
-                    <p>{review.date}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No reviews yet.</p>
-              )}
+            <div className="product-title">{product.title}</div>
+            <div className="product-price">Price: ${product.price}</div>
+
+            {/* Removed Inventory section */}
+            {/* <div className="product-inventory">Inventory: {product.inventory}</div> */}
+
+            {/* Removed Price with Tax */}
+            {/* <div className="product-tax">Price with Tax: ${product.price_with_tax}</div> */}
+
+            {/* Quantity Selector */}
+            <div className="quantity-selector">
+              <label htmlFor="quantity">Quantity: </label>
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                max={product.inventory}
+                value={quantity}
+                onChange={handleQuantityChange}
+              />
             </div>
-            <button className="add-to-cart">Add to Cart</button>
+
+            <button className="add-to-cart" onClick={handleAddToCart}>
+              Add {quantity} to Cart
+            </button>
           </div>
         </div>
       )}
+
+      {/* Divider between product details and reviews */}
+      <div className="divider"></div>
+
+      {/* Reviews Section */}
+      <div className="product-reviews">
+        <h3>Reviews</h3>
+        {product.reviews && product.reviews.length > 0 ? (
+          product.reviews.map((review) => (
+            <div key={review.name} className="review-card">
+              <div className="review-header">
+                <div className="review-author">
+                  <strong>{review.name}</strong>
+                </div>
+                <div className="review-date">{review.date}</div>
+              </div>
+              <div className="review-description-text">{review.description}</div>
+            </div>
+          ))
+        ) : (
+          <div>No reviews yet.</div>
+        )}
+      </div>
     </div>
   );
 };

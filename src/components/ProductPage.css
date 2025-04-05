@@ -1,19 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #C1D8C5;
-  margin: 0;
-  padding: 0;
-  color: #333;
+/* Global Font */
+.reviews-page, .product-title, .review-description-text, .review-author, .review-date {
+  font-family: 'Lora', serif;
 }
 
+/* Product Page */
 .product-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 40px 20px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(30px);
@@ -39,97 +35,181 @@ body {
 
 .product-image {
   flex: 1;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .product-image img {
   width: 100%;
-  max-height: 500px;
+  height: 280px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 .product-details {
-  flex: 1;
-  text-align: left;
+  flex: 2;
   font-family: 'Roboto', sans-serif;
 }
 
-.product-details h2 {
+.product-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1d2b3a;
-  margin-bottom: 20px;
-}
-
-.product-collection, .product-price, .product-inventory, .product-tax {
-  font-size: 1.25rem;
   margin-bottom: 10px;
 }
 
-.product-reviews {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #777;
+/* Wrap text elements in div for better formatting control */
+.product-collection,
+.product-price,
+.product-inventory,
+.product-tax,
+.quantity-selector,
+.add-to-cart {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
 }
 
-.product-reviews h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1d2b3a;
+.product-collection {
+  text-transform: uppercase; /* Make the collection text uppercase */
 }
 
-.product-reviews div {
-  margin-top: 10px;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-}
-
-.product-reviews p {
-  margin: 5px 0;
-}
-
-.product-reviews p strong {
-  font-weight: bold;
+.product-collection div,
+.product-price div,
+.product-inventory div,
+.product-tax div {
+  margin-bottom: 8px; /* Space between each div element */
 }
 
 .add-to-cart {
-  background-color: #1d2b3a;
-  color: white;
+  background-color: #2F4F4F;
+  color: #f8f5e1;
   font-size: 1.25rem;
-  padding: 15px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  width: 100%;
+  max-width: 400px; /* Limiting the button's max width */
 }
 
 .add-to-cart:hover {
-  background-color: #333;
+  background-color: #203737;
 }
 
+/* Reviews Section - Styled Like Review Page */
+.product-reviews {
+  margin-top: 30px;
+}
+
+.product-reviews h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2f3e2e;
+  margin-bottom: 20px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review-card {
+  background-color: #f5f8f3; /* Lighter background color for review card */
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: cardSlideInUp 1s ease-out forwards;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #3a4d39;
+}
+
+.review-date {
+  color: #7a8c7a;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.review-description-text {
+  font-size: 1rem;
+  color: #444;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+}
+
+.no-review {
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Divider Style */
+.divider {
+  height: 1px;
+  background-color: #ccc; /* Light gray color */
+  margin: 40px 0; /* Space around the divider */
+}
+
+/* Other styles remain unchanged */
+
+
+/* Quantity Selector */
+.quantity-selector {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.quantity-selector input {
+  width: 60px;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .product-page {
-    padding: 60px 20px;
+  .reviews-list {
+    gap: 16px;
   }
 
-  /* Collection Title Styling (All Caps, Smaller Font, Lighter Color) */
-  .product-collection {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #999;  /* Lighter color */
-    text-transform: uppercase; /* All caps */
-    margin-bottom: 10px;
-  }
+
+/* Product Page */
+.product-page {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: pageSlideInUp 1s forwards;
+}
+
   .product-content {
     flex-direction: column;
     align-items: center;
   }
 
   .product-image img {
-    max-height: 350px;
+    height: 250px;
   }
 
   .product-details {
@@ -137,8 +217,11 @@ body {
     margin-top: 20px;
   }
 
-  .product-collection, .product-price, .product-inventory, .product-tax {
-    font-size: 1.1rem;
+  .product-collection,
+  .product-price,
+  .product-inventory,
+  .product-tax {
+    font-size: 1rem;
   }
 
   .add-to-cart {
