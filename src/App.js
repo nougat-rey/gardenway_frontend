@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import pages/components
 import Login from './components/Login';
-import Logout from './components/Logout';
 import LandingPage from './components/LandingPage';
 import AboutUs from './components/AboutUs';
 import Cart from './components/Cart';
@@ -32,7 +31,6 @@ const App = () => {
         <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
         <Route path="/collection/:id" element={<Layout><Collections /></Layout>} />
         <Route path="/login" element={<Layout><Login /></Layout>} />
-        <Route path="/logout" element={<Layout><Logout /></Layout>} />
       </Routes>
     </Router>
   );
