@@ -1,5 +1,3 @@
-/* AboutUs.css */
-
 /* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
 
@@ -77,4 +75,46 @@
     opacity: 1;
     transform: translateY(0); /* End at normal position */
   }
+}
+
+/* Divider Line */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 40px 0;
+}
+
+/* Photo Gallery Section */
+.photo-gallery {
+  margin-top: 40px;
+}
+
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #1d2b3a;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  /* Grid layout with flexible columns */
+  gap: 16px;
+}
+
+.photo-item {
+  position: relative;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;  /* Smooth transition */
+}
+
+/* Remove zoom on hover */
+.photo-item img:hover {
+  transform: none;  /* Prevent zoom effect */
 }
