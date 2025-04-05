@@ -1,11 +1,11 @@
-/* Profile.css */
-.profile-page .profile-container {
+/* Profile page container styling */
+.profile-container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 30px 15px;
-  background-color: #f9faf7;
-  border-radius: 8px;
+  padding: 40px 40px;
+  background-color: #fff;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   opacity: 1;
   transform: translateY(0);
@@ -23,53 +23,62 @@
   }
 }
 
-.profile-page .profile-content {
-  text-align: center;
+/* Profile content styles */
+.profile-content {
+  text-align: left;
 }
 
-.profile-page .profile-content h2 {
+.profile-content h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2A4D30;
+  color: #000; /* Change header color to black */
   margin-bottom: 15px;
 }
 
-.profile-page .profile-info {
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  color: #2A4D30;
-  line-height: 1.5;
+/* Styling for each profile item */
+.profile-item {
+  margin-bottom: 12px;
 }
 
-.profile-page .profile-info p {
-  margin-bottom: 10px;
+/* Styling for input fields */
+.profile-item input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #000; /* Text inside input fields is black */
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.profile-page .profile-info strong {
-  color: #1e3b31;
+.profile-item input[readonly] {
+  background-color: #e0e0e0; /* Light grey background to indicate read-only */
+  cursor: not-allowed; /* Prevent interaction */
+}
+
+/* Styling for strong text in profile items */
+.profile-info strong {
+  color: #000; /* Change the label text color to black */
   font-weight: 600;
 }
 
-/* Mobile Adjustments */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .profile-page .profile-container {
+  .profile-container {
     padding: 20px 10px;
   }
 
-  .profile-page .profile-content h2 {
+  .profile-content h2 {
     font-size: 1.4rem;
   }
 
-  .profile-page .profile-info {
+  .profile-info {
     padding: 12px;
   }
 
-  .profile-page .profile-info p {
+  .profile-info .profile-item {
     font-size: 0.9rem;
   }
 }

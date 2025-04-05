@@ -73,12 +73,25 @@ const Profile = () => {
     <div className="profile-container">
       <div className="profile-content">
         <h2>Personal Information</h2>
-        <div className="profile-info">
-          <p><strong>Username:</strong> {user?.username || 'Not Available'}</p>
-          <p><strong>Email:</strong> {user?.email || 'Not Available'}</p>
-          <p><strong>First Name:</strong> {user?.first_name || 'Not Available'}</p>
-          <p><strong>Last Name:</strong> {user?.last_name || 'Not Available'}</p>
-          <p><strong>Phone:</strong> {user?.phone || 'Not Provided'}</p>
+        <div className="profile-item">
+          <strong>Username:</strong>
+          <input type="text" value={user?.username || 'Not Available'} readOnly />
+        </div>
+        <div className="profile-item">
+          <strong>Email:</strong>
+          <input type="email" value={user?.email || 'Not Available'} readOnly />
+        </div>
+        <div className="profile-item">
+          <strong>First Name:</strong>
+          <input type="text" value={user?.first_name || 'Not Available'} readOnly />
+        </div>
+        <div className="profile-item">
+          <strong>Last Name:</strong>
+          <input type="text" value={user?.last_name || 'Not Available'} readOnly />
+        </div>
+        <div className="profile-item">
+          <strong>Phone:</strong>
+          <input type="tel" value={user?.phone || 'Not Provided'} readOnly />
         </div>
       </div>
     </div>
