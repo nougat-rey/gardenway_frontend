@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Layout.css';
 import logo from '../assets/logo.png';
 
@@ -7,6 +7,41 @@ const Layout = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const verifyToken = async () => {
+      const token = localStorage.getItem('access');
+      if (!token) {
+        setIsAuthenticated(false);
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:8000/auth/jwt/verify/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+
+        if (response.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          localStorage.removeItem('access');
+          localStorage.removeItem('refresh');
+        }
+      } catch (error) {
+        console.error('Token verification error:', error);
+        setIsAuthenticated(false);
+      }
+    };
+
+    verifyToken();
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/store/products/')
@@ -25,6 +60,27 @@ const Layout = ({ children }) => {
       setFilteredProducts(filtered);
     }
   }, [searchQuery, products]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+    setIsAuthenticated(false);
+    setShowDropdown(false);
+    navigate('/');  // Navigate to the home page
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="layout">
@@ -55,9 +111,38 @@ const Layout = ({ children }) => {
               </ul>
             )}
           </div>
-          <Link to="/profile">
-            <i className="fa fa-user" aria-hidden="true"></i>
-          </Link>
+
+          {isAuthenticated ? (
+            <div className="profile-dropdown" ref={dropdownRef}>
+              <i
+                className="fa fa-user"
+                aria-hidden="true"
+                onClick={() => setShowDropdown(prev => !prev)}
+              ></i>
+              {showDropdown && (
+                <ul className="dropdown-menu">
+                  <li><Link to="/profile" onClick={() => setShowDropdown(false)}>Profile</Link></li>
+                  <li><Link to="/orders" onClick={() => setShowDropdown(false)}>My Orders</Link></li>
+                  <li>
+                    <Link 
+                      to="/" 
+                      onClick={(e) => {
+                        e.preventDefault();  // Prevent default Link behavior
+                        handleLogout();  // Call logout function
+                      }}
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </div>
+          ) : (
+            <Link to="/login">
+              <i className="fa fa-user" aria-hidden="true"></i>
+            </Link>
+          )}
+
           <Link to="/cart">
             <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </Link>

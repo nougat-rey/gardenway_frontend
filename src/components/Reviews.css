@@ -11,8 +11,6 @@
     margin-bottom: 30px;
     opacity: 0;
     transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-  
   }
   
   /* Container for All Products */
@@ -24,8 +22,7 @@
     padding: 0;
     opacity: 0;
     transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-  
+    animation: descriptionSlideInUp 1s ease-out 1s forwards;  /* Delay the description's animation */
   }
   
   /* Product Review Card */

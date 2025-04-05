@@ -139,3 +139,54 @@ footer p {
         grid-template-columns: 1fr;  /* Single column on smaller screens */
     }
 }
+
+/* Profile Dropdown Menu */
+.profile-dropdown {
+    position: relative;
+}
+  
+.profile-dropdown .fa-user {
+    font-size: 22px;
+    color: #f8f5e1;
+    cursor: pointer;
+    margin: 0 15px;
+}
+  
+.dropdown-menu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background-color: #2F4F4F;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    z-index: 1001;
+    min-width: 150px;
+}
+  
+  
+.header .profile-dropdown .dropdown-menu li a,
+.header .profile-dropdown .dropdown-menu li button {
+  display: block;
+  padding: 10px 20px;
+  color: #f8f5e1;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+  
+.header .profile-dropdown .dropdown-menu li a:hover,
+.header .profile-dropdown .dropdown-menu li button:hover {
+    color: #A0B99D;
+    text-decoration: underline;
+}
+  
