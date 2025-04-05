@@ -1,3 +1,4 @@
+
 /* Global Font */
 .reviews-page, .product-title, .review-description-text, .review-author, .review-date {
   font-family: 'Lora', serif;
@@ -61,12 +62,22 @@
   object-fit: cover;
 }
 
+.product-link {
+  text-decoration: none;
+}
+
 .product-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: #2f3e2e;
   margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.product-link:hover .product-title {
+  color: #5e7c5b;
+  text-decoration: none;
 }
 
 /* Review Section */
