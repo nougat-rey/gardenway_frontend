@@ -1,6 +1,4 @@
-/* LandingPage.css */
-
-/* Main content styles */
+/* === Main Page Styles === */
 main {
     display: flex;
     flex-direction: column;
@@ -9,137 +7,141 @@ main {
     padding: 50px;
     background-color: #C1D8C5;
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-/* Intro section styles */
-.intro-section {
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 40px; /* Adds spacing below header & description */
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  /* === Page Container === */
+  .page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px;
+    background-color: #ecfbf9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-main h2 {
+    transform: translateY(30px);
+    animation: slideInUp 1s forwards;
+  }
+  
+  /* === Intro Section === */
+  .intro-section {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  main h2 {
     font-family: 'Lora', serif;
     font-size: 2.5rem;
     color: #1d2b3a;
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-main p {
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  main p {
     font-size: 1.2rem;
     color: #333;
     line-height: 1.5;
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-/* Card styling */
-.card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-.card img {
-    width: 100%;
-    border-radius: 8px;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-.card h3 {
-    font-size: 1.5rem;
-    margin-top: 15px;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-/* Hover Effects for Cards */
-.card:hover {
-    transform: scale(1.05);  /* Slight zoom effect on card hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Collection Cards Container */
-.collections-container {
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  /* === Collection Cards Container === */
+  .collections-container {
     width: 100%;
     display: flex;
     justify-content: center;
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-/* Collection Cards Grid */
-.collections-grid {
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  /* === Collections Grid === */
+  .collections-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1200px;
-}
-
-/* Styling for individual collection cards */
-.collection-card {
-    background-color: white;
+  }
+  
+  /* === Collection Card Link Wrapper === */
+  .collection-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* === Collection Card Styles === */
+  .collection-card {
+    background-color: #f4f8e9;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: cardSlideInUp 1s ease-out forwards; /* Card slide-up animation */
-}
-
-.collection-card img {
+    transform: translateY(30px);
+    animation: cardSlideInUp 1s ease-out forwards;
+  }
+  
+  .collection-card img {
     width: 100%;
     height: 140px;
+    object-fit: cover;
     border-radius: 8px;
-}
-
-.collection-card h3 {
+  }
+  
+  .collection-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     margin-top: 10px;
-}
-
-.collection-card p {
+  }
+  
+  .collection-card p {
     font-size: 1rem;
     color: #666;
-}
-
-/* Hover effect for collection cards */
-.collection-card:hover {
+  }
+  
+  .collection-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Link styling for collection cards */
-.collection-card-link {
-    text-decoration: none;  /* Remove default underline from links */
-    color: inherit;  /* Make sure the text color inherits from the card styles */
-}
-
-/* Responsive design adjustments for main content */
-@media (max-width: 768px) {
+  }
+  
+  /* === Responsive === */
+  @media (max-width: 768px) {
     .collections-grid {
-        grid-template-columns: 1fr;  /* Single column on smaller screens */
+      grid-template-columns: 1fr;
     }
-}
+  }
+  
+  /* === Animation Keyframes === */
+  @keyframes cardSlideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -130,7 +130,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1d2b3a;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 /* Product Price */
@@ -138,6 +138,7 @@ body {
   font-size: 1.1rem;
   color: #1d2b3a;
   font-weight: 500;
+  margin-bottom: 4px;
 }
 
 /* Product Inventory */

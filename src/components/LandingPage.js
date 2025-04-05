@@ -25,23 +25,25 @@ const LandingPage = () => {
   return (
     <Layout>
       <main>
-        <div className="intro-section">
-          <h2>Welcome to Gardenway</h2>
-          <p>Sharing the inspiration I’ve found in nature’s wonders with your garden.</p>
-        </div>
+        <div className='page-container'>
+          <div className="intro-section">
+            <h2>Welcome to Gardenway</h2>
+            <p>Sharing the inspiration I’ve found in nature’s wonders with your garden.</p>
+          </div>
 
-        {/* Collection Cards Grid */}
-        <div className="collections-container">
-          <div className="collections-grid">
-            {collections.map((collection) => (
-              <Link
-                key={collection.id}
-                to={`/collection/${collection.id}`}  // Link to the collection page
-                className="collection-card-link"  // Optional class for styling the link
-              >
-                <CollectionCard collection={collection} />
-              </Link>
-            ))}
+          {/* Collection Cards Grid */}
+          <div className="collections-container">
+            <div className="collections-grid">
+              {collections.map((collection) => (
+                <Link
+                  key={collection.id}
+                  to={`/collection/${collection.id}`}  // Link to the collection page
+                  className="collection-card-link"  // Optional class for styling the link
+                >
+                  <CollectionCard collection={collection} />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </main>

@@ -108,9 +108,9 @@ const Collections = () => {
               )}
             </div>
             <div className="shop-info">
-              <h3 className="shop-title">{product.title}</h3>
-              <p className="shop-price">${product.price}</p>
-              <p className="shop-inventory">In Stock: {product.inventory}</p>
+              <div className="shop-title">{product.title}</div>
+              <div className="shop-price">${product.price}</div>
+              <div className="shop-inventory">In Stock: {product.inventory}</div>
             </div>
           </Link>
         ))}
