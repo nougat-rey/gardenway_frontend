@@ -19,7 +19,7 @@ body {
     margin: 0 auto;
     padding: 100px 60px;  /* Increase padding for more space around content */
     text-align: center;
-    background-color: #c8efe3;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     opacity: 0; /* Start invisible */
@@ -76,7 +76,7 @@ body {
 
 /* Shop Card Styling */
 .shop-card {
-  background-color: #fff;
+  background-color: #fcfef7;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
