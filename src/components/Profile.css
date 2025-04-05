@@ -1,109 +1,75 @@
 /* Profile.css */
+.profile-page .profile-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 15px;
+  background-color: #f9faf7;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transform: translateY(0);
+  animation: profileSlideInUp 0.6s forwards;
+}
 
-/* General Body Styling */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #C1D8C5;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
-  /* Profile Container */
-  .profile-container {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 100px 60px;  /* Increase padding for more space around content */
-    text-align: center;
-    background-color: #c8efe3;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+@keyframes profileSlideInUp {
+  0% {
     opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: profileSlideInUp 1s forwards; /* Apply the slide-up effect */
+    transform: translateY(30px);
   }
-  
-  /* Keyframe animation for profile page to slide up */
-  @keyframes profileSlideInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Profile Title Styling */
-  .profile-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 550;
-    color: #1d2b3a;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: titleSlideInUp 1s ease-out 0.5s forwards;
+}
+
+.profile-page .profile-content {
+  text-align: center;
+}
+
+.profile-page .profile-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2A4D30;
+  margin-bottom: 15px;
+}
+
+.profile-page .profile-info {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: #2A4D30;
+  line-height: 1.5;
+}
+
+.profile-page .profile-info p {
+  margin-bottom: 10px;
+}
+
+.profile-page .profile-info strong {
+  color: #1e3b31;
+  font-weight: 600;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .profile-page .profile-container {
+    padding: 20px 10px;
   }
-  
-  /* Keyframe animation for the title to slide up */
-  @keyframes titleSlideInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .profile-page .profile-content h2 {
+    font-size: 1.4rem;
   }
-  
-  /* Profile Content Styling */
-  .profile-content {
-    margin-top: 30px;
-    text-align: left;
+
+  .profile-page .profile-info {
+    padding: 12px;
   }
-  
-  .profile-info {
-    font-size: 1.2rem;
-    color: #1d2b3a;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    width: 80%;
+
+  .profile-page .profile-info p {
+    font-size: 0.9rem;
   }
-  
-  .profile-info h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1d2b3a;
-    margin-bottom: 20px;
-  }
-  
-  .profile-info p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-  
-  .profile-info strong {
-    font-weight: bold;
-  }
-  
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    .profile-container {
-      padding: 60px 20px;
-      max-width: 100%;  /* Full width on smaller screens */
-    }
-  
-    .profile-title {
-      font-size: 2.5rem;
-    }
-  }
-  
+}
