@@ -1,6 +1,5 @@
-// src/components/ContactUs.js
 import React from 'react';
-import './ContactUs.css';  // Import a separate CSS file for styles
+import './ContactUs.css';
 
 const ContactUs = () => {
   return (
@@ -12,12 +11,12 @@ const ContactUs = () => {
       
       <div className="contact-details">
         <div className="contact-item">
-          <h3>Phone</h3>
-          <p className="contact-info">613-914-779</p>
+          <div><strong>Phone:</strong></div>
+          <div className="contact-info">613-914-779</div>
         </div>
         <div className="contact-item">
-          <h3>Email</h3>
-          <p className="contact-info">nougat.rey@gmail.com</p>
+          <div><strong>Email:</strong></div>
+          <div className="contact-info">nougat.rey@gmail.com</div>
         </div>
       </div>
     </div>

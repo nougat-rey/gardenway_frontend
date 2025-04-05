@@ -1,30 +1,50 @@
-/* ContactUs.css */
-
 /* Overall container styling */
 .contact-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  text-align: center;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
+  text-align: left; 
 }
 
 /* Title Styling */
 .contact-title {
   font-size: 2rem;
+  font-family: 'Playfair Display', serif;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 600;
+  text-align: left;
+}
+
+/* Description Styling */
+.contact-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 25px;
+  text-align: left;
 }
 
 /* Contact Info Styling */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .contact-info {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #555;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .contact-info strong {
