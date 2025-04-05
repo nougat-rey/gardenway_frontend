@@ -23,15 +23,15 @@
   .auth-container button {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
-    color: white;
+    background-color: #2F4F4F;
+    color: #f8f5e1;;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .auth-container button:hover {
-    background-color: #218838;
+    background-color: #203737;
   }
   
   .error-message {
