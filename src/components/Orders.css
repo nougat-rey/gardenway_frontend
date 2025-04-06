@@ -54,9 +54,13 @@
   }
   
   .order-id {
-    margin: 0;
-    color: #2a4d30;
+    font-family: 'Arial', sans-serif; /* Use Arial or any other legible font */
+    font-size: 1.2rem;  /* Adjust size to make it easy to read */
+    font-weight: bold;  /* Make it stand out */
+    color: #333;  /* Dark color for readability */
+    letter-spacing: 0.5px;  /* Add some letter spacing for clarity */
   }
+  
   
   .order-date,
   .order-status,

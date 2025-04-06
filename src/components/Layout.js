@@ -123,7 +123,7 @@ const Layout = ({ children }) => {
               {showDropdown && (
                 <ul className="dropdown-menu">
                   <li><Link to="/profile" onClick={() => setShowDropdown(false)}>Profile</Link></li>
-                  <li><Link to="/orders" onClick={() => setShowDropdown(false)}>My Orders</Link></li>
+                  <li><Link to="/orders" onClick={() => setShowDropdown(false)}>Your Orders</Link></li>
                   <li>
                     <Link 
                       to="/" 

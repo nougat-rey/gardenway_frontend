@@ -7,6 +7,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [productDetails, setProductDetails] = useState({});
 
   const token = localStorage.getItem('access');
 
@@ -19,6 +20,24 @@ const Orders = () => {
           },
         });
         setOrders(response.data);
+
+        // Fetch product details for each item in each order
+        const productRequests = response.data.flatMap((order) =>
+          order.items.map((item) =>
+            axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
+          )
+        );
+
+        // Fetch all product details concurrently
+        const productResponses = await Promise.all(productRequests);
+
+        // Store the product details by product ID
+        const productData = productResponses.reduce((acc, res) => {
+          acc[res.data.id] = res.data;
+          return acc;
+        }, {});
+
+        setProductDetails(productData);
       } catch (err) {
         setError('Failed to fetch orders.');
       } finally {
@@ -43,7 +62,7 @@ const Orders = () => {
 
   return (
     <div className="orders-container">
-      <h1 className="orders-title">My Orders</h1>
+      <h1 className="orders-title">Your Orders</h1>
       {orders.length === 0 ? (
         <p className="no-orders">You haven't placed any orders yet.</p>
       ) : (
@@ -60,23 +79,37 @@ const Orders = () => {
               </Link>
               <div className="order-items">
                 {order.items && order.items.length > 0 ? (
-                  order.items.map((item) => (
-                    <div className="order-item" key={item.id}>
-                      <div className="order-item-image">
-                        <img
-                          src={item.product?.images?.[0]?.image || '/banner.png'}
-                          alt={item.product?.title || 'Product'}
-                          onError={(e) => (e.target.src = '/banner.png')}
-                        />
+                  order.items.map((item) => {
+                    const product = productDetails[item.product.id]; // Get product details from the state
+                    const unitPrice = product?.price || 0; // Use price instead of unit_price
+                    const totalPrice = unitPrice * item.quantity;
+
+                    return (
+                      <div className="order-item" key={item.id}>
+                        <div className="order-item-image">
+                          {product?.images?.[0]?.image ? (
+                            <img
+                              src={product.images[0].image}
+                              alt={product?.title || 'Product'}
+                              onError={(e) => (e.target.src = '/banner.png')}
+                            />
+                          ) : (
+                            <img
+                              src="/banner.png"
+                              alt="Default banner"
+                              onError={(e) => (e.target.src = '/banner.png')}
+                            />
+                          )}
+                        </div>
+                        <div className="order-item-details">
+                          <div><strong>Product:</strong> {product?.title || 'N/A'}</div>
+                          <div><strong>Unit Price:</strong> ${unitPrice.toFixed(2)}</div>
+                          <div><strong>Quantity:</strong> {item.quantity}</div>
+                          <div><strong>Total:</strong> ${totalPrice.toFixed(2)}</div>
+                        </div>
                       </div>
-                      <div className="order-item-details">
-                        <div><strong>Product:</strong> {item.product?.title || 'N/A'}</div>
-                        <div><strong>Unit Price:</strong> ${item.product?.unit_price?.toFixed(2) || '0.00'}</div>
-                        <div><strong>Quantity:</strong> {item.quantity}</div>
-                        <div><strong>Total:</strong> ${(item.quantity * (item.product?.unit_price || 0)).toFixed(2)}</div>
-                      </div>
-                    </div>
-                  ))
+                    );
+                  })
                 ) : (
                   <p className="no-items">No items in this order.</p>
                 )}
