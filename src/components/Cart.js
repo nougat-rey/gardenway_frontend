@@ -8,6 +8,7 @@ const Cart = () => {
   const [items, setItems] = useState([]);
   const [cartLoading, setCartLoading] = useState(true);
   const [cartError, setCartError] = useState(null);
+  const [productDetails, setProductDetails] = useState({}); // To store product details
 
   const token = localStorage.getItem('access');
   const cartId = localStorage.getItem('cartId');
@@ -28,6 +29,20 @@ const Cart = () => {
           }
         );
         setItems(response.data);
+
+        // Fetch product details for each item
+        const productRequests = response.data.map((item) =>
+          axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
+        );
+
+        const productResponses = await Promise.all(productRequests);
+        const productData = productResponses.reduce((acc, curr) => {
+          const product = curr.data;
+          acc[product.id] = product;  // Store the product details using product.id
+          return acc;
+        }, {});
+
+        setProductDetails(productData);  // Store product details in state
       } catch (error) {
         console.error("Error fetching cart:", error);
         setCartError("Failed to load cart. Please try again.");
@@ -111,9 +126,24 @@ const Cart = () => {
         <p>Your cart is currently empty.</p>
       ) : (
         <>
-          <ul className="cart-items">
-            {items.map(item => (
-              <li key={item.id} className="cart-item">
+        <ul className="cart-items">
+          {items.map(item => (
+            <li key={item.id} className="cart-item">
+              <div className="cart-item-image">
+                {productDetails[item.product.id] && productDetails[item.product.id].images && productDetails[item.product.id].images[0] ? (
+                  <img
+                    src={productDetails[item.product.id].images[0].image}
+                    alt={item.product.title}
+                    onError={(e) => {
+                      e.target.src = "http://localhost:3000/banner.png";  // Fallback image
+                    }} 
+                  />
+                ) : (
+                  <div>No image available</div>
+                )}
+              </div>
+
+              <div className="cart-item-details">
                 <div><strong>Product:</strong> {item.product.title}</div>
                 <div><strong>Unit Price:</strong> ${item.product.unit_price.toFixed(2)}</div>
                 <div className="quantity-control">
@@ -137,13 +167,13 @@ const Cart = () => {
                   </button>
                 </div>
                 <div><strong>Total:</strong> ${item.total_price.toFixed(2)}</div>
-                <div><strong>With Tax:</strong> ${item.total_price_with_tax.toFixed(2)}</div>
-              </li>
-            ))}
-          </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
+
 
           <div className="cart-subtotal">
-            <hr />
             <div><strong>Subtotal:</strong> ${subtotal.toFixed(2)}</div>
             <div><strong>Subtotal with Tax:</strong> ${subtotalWithTax.toFixed(2)}</div>
           </div>
