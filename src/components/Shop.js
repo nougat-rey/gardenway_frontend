@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './Shop.css';
 
 const Shop = () => {
@@ -14,12 +15,11 @@ const Shop = () => {
       axios.get('http://localhost:8000/store/products/')
         .then(response => {
           setProducts(response.data);
-          // Initialize quantities for each product
           const initialQuantities = response.data.reduce((acc, product) => {
-            acc[product.id] = 0; // Set initial quantity to 0 for each product
+            acc[product.id] = 0;
             return acc;
           }, {});
-          setQuantity(initialQuantities); // Set initial quantities state
+          setQuantity(initialQuantities);
           setIsFetched(true);
         })
         .catch(error => {
@@ -112,8 +112,8 @@ const Shop = () => {
 
   const handleQuantityChange = (productId, change) => {
     setQuantity(prev => {
-      const currentQuantity = prev[productId] || 0; // Starting quantity at 0
-      const newQuantity = Math.max(0, currentQuantity + change); // Ensure quantity doesn't go below 0
+      const currentQuantity = prev[productId] || 0;
+      const newQuantity = Math.max(0, currentQuantity + change);
       return { ...prev, [productId]: newQuantity };
     });
   };
@@ -143,11 +143,14 @@ const Shop = () => {
               )}
             </div>
             <div className="shop-info">
-              <div className="shop-title">{product.title}</div>
+              {/* Make the product title a clickable link */}
+              <Link to={`/product/${product.id}`} className="shop-title">
+                {product.title}
+              </Link>
               <div className="shop-price">${product.price}</div>
               <div className="shop-inventory">In Stock: {product.inventory}</div>
+
               {/* Quantity Control */}
-              
               <div className="quantity-control">
                 <button
                   onClick={() => handleQuantityChange(product.id, -1)}
@@ -171,8 +174,8 @@ const Shop = () => {
                   onClick={() => handleAddToCart(product.id, quantity[product.id] || 0)}
                   disabled={quantity[product.id] <= 0}
                 >
-                  <i className="fas fa-cart-plus icon"></i> {/* Cart Icon */}
-                  <i className="fas fa-arrow-right icon"></i> {/* Arrow Icon */}
+                  <i className="fas fa-cart-plus icon"></i>
+                  <i className="fas fa-arrow-right icon"></i>
                 </button>
               </div>
             </div>

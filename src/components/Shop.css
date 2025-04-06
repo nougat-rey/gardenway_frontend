@@ -118,6 +118,12 @@ body {
   font-weight: 700;
   color: #1d2b3a;
   margin-bottom: 4px;
+  text-decoration: none;
+}
+
+.shop-title:hover {
+  color: #0d131a;
+  text-decoration: none;
 }
 
 .shop-price {
