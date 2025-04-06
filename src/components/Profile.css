@@ -4,7 +4,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 40px;
-  background-color: #fff;
+  background-color: #fffbe6;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   opacity: 1;
@@ -54,7 +54,7 @@
 }
 
 .profile-item input[readonly] {
-  background-color: #e0e0e0; /* Light grey background to indicate read-only */
+  background-color: #ffffff; /* Light grey background to indicate read-only */
   cursor: not-allowed; /* Prevent interaction */
 }
 

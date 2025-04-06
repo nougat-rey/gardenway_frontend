@@ -1,5 +1,3 @@
-/* Collections.css */
-
 /* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
 
@@ -19,7 +17,7 @@ body {
   margin: 0 auto;
   padding: 100px 60px;  /* Increase padding for more space around content */
   text-align: center;
-  background-color: #c8efe3;
+  background-color: #fffbe6;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   opacity: 0; /* Start invisible */
@@ -153,8 +151,63 @@ body {
   color: #777;
 }
 
+/* Quantity Control */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Smaller Quantity Button */
+.qty-btn {
+  padding: 6px 10px;  /* Smaller padding */
+  background-color: #1d2b3a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;  /* Smaller font size */
+  border-radius: 5px;
+}
+
+.qty-btn:disabled {
+  background-color: #ccc;
+}
+
+/* Adjusted Quantity Value */
+.qty-value {
+  font-size: 1rem;  /* Smaller font size */
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  padding: 6px 10px;  /* Smaller padding */
+  background-color: #0d131a;
+  color: #fff;
+  border: none;
+  font-size: 1rem;  /* Smaller font size */
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart-btn i {
+  margin-right: 4px;  /* Smaller margin between icon and text */
+}
+
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
+  .qty-btn {
+    padding: 5px 8px;  /* Even smaller padding for small screens */
+    font-size: 0.9rem;  /* Smaller font size */
+  }
+
+  .add-to-cart-btn {
+    padding: 5px 8px;  /* Smaller padding for small screens */
+    font-size: 0.9rem;  /* Smaller font size */
+  }
+
   .collections h1 {
     font-size: 2.5rem;
   }

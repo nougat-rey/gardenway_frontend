@@ -143,21 +143,21 @@ const Collections = () => {
   };
 
   if (!collection) {
-    return <div className="collections-container">Loading...</div>;
+    return <div className="collections">Loading...</div>;
   }
 
   return (
-    <div className="shop">
+    <div className="collections">
       <h1>{collection.title}</h1>
-      <div className="shop-grid">
+      <div className="collections-grid">
         {products.map((product, index) => (
           <div
             key={product.id}
             id={String(product.id)}
             ref={(el) => productRefs.current[index] = el}
-            className={`shop-card ${visibleCards.has(String(product.id)) ? 'fade-in' : ''}`}
+            className={`collection-card ${visibleCards.has(String(product.id)) ? 'fade-in' : ''}`}
           >
-            <div className="shop-image">
+            <div className="collection-image">
               {product.images.length > 0 ? (
                 <img
                   src={buildImageUrl(product.images[0].image)}
@@ -171,7 +171,7 @@ const Collections = () => {
                 <img src="http://localhost:3000/banner.png" alt="Default" />
               )}
             </div>
-            <div className="shop-info">
+            <div className="collection-info">
               {/* Make the product title a clickable link */}
               <Link to={`/product/${product.id}`} className="shop-title">
                 {product.title}

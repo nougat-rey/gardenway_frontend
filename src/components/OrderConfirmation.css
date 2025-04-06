@@ -2,7 +2,7 @@
 
 .order-confirmation {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    background-color: #fffbe6;
     padding: 40px;
     margin: 0 auto;
     max-width: 900px;
@@ -79,7 +79,7 @@
   }
   
   .action-btn {
-    background-color: #5c776f;
+    background-color: #487668;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -91,7 +91,7 @@
   }
   
   .action-btn:hover {
-    background-color: #3f514b;
+    background-color: #2a4d41;
   }
   
   .order-actions .action-btn:first-child {
