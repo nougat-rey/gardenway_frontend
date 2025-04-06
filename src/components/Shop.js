@@ -147,6 +147,7 @@ const Shop = () => {
               <div className="shop-price">${product.price}</div>
               <div className="shop-inventory">In Stock: {product.inventory}</div>
               {/* Quantity Control */}
+              
               <div className="quantity-control">
                 <button
                   onClick={() => handleQuantityChange(product.id, -1)}
@@ -163,16 +164,17 @@ const Shop = () => {
                 >
                   +
                 </button>
-              </div>
-              {/* Minimalistic Add to Cart Button */}
+                
+                {/* Inline Add to Cart Button */}
                 <button
                   className="add-to-cart-btn"
                   onClick={() => handleAddToCart(product.id, quantity[product.id] || 0)}
                   disabled={quantity[product.id] <= 0}
                 >
-                  <i className="fas fa-cart-plus icon"></i> {/* Cart icon */}
-                  Add to Cart
+                  <i className="fas fa-cart-plus icon"></i> {/* Cart Icon */}
+                  <i className="fas fa-arrow-right icon"></i> {/* Arrow Icon */}
                 </button>
+              </div>
             </div>
           </div>
         ))}
