@@ -172,7 +172,11 @@ const Collections = () => {
               )}
             </div>
             <div className="shop-info">
-              <div className="shop-title">{product.title}</div>
+              {/* Make the product title a clickable link */}
+              <Link to={`/product/${product.id}`} className="shop-title">
+                {product.title}
+              </Link>
+
               <div className="shop-price">${product.price}</div>
               <div className="shop-inventory">In Stock: {product.inventory}</div>
 
