@@ -1,9 +1,9 @@
 /* Profile page container styling */
 .profile-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 40px 40px;
+  padding: 40px 60px;
   background-color: #fffbe6;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
