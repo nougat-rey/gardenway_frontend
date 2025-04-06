@@ -19,29 +19,42 @@ const Layout = ({ children }) => {
         setIsAuthenticated(false);
         return;
       }
-
+  
       try {
         const response = await fetch('http://localhost:8000/auth/jwt/verify/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ token }),
         });
-
+  
         if (response.ok) {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
           localStorage.removeItem('access');
           localStorage.removeItem('refresh');
+  
+          // Redirect only if currently on a protected route
+          const protectedPaths = ['/profile', '/orders'];
+          if (protectedPaths.includes(window.location.pathname)) {
+            navigate('/login');
+          }
         }
       } catch (error) {
         console.error('Token verification error:', error);
         setIsAuthenticated(false);
+  
+        const protectedPaths = ['/profile', '/orders'];
+        if (protectedPaths.includes(window.location.pathname)) {
+          navigate('/login');
+        }
       }
     };
-
+  
     verifyToken();
-  }, []);
+  }, [navigate]);
+  
+  
 
   useEffect(() => {
     fetch('http://localhost:8000/store/products/')
