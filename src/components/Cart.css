@@ -24,3 +24,35 @@
     font-size: 1.1rem;
     color: #2a4d30;
   }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+  }
+  
+  .qty-btn {
+    background-color: #e3e3e3;
+    border: none;
+    padding: 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .qty-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .qty-value {
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  .delete-btn {
+    background-color: #ffdddd;
+    color: red;
+  }
