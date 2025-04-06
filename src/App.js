@@ -13,6 +13,7 @@ import Reviews from './components/Reviews';
 import ProductPage from './components/ProductPage';
 import Collections from './components/Collections';
 import 'font-awesome/css/font-awesome.min.css';
+import OrderConfirmation from './components/OrderConfirmation';
 
 // Layout will be used to wrap the pages with header and footer
 import Layout from './components/Layout';
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
         <Route path="/collection/:id" element={<Layout><Collections /></Layout>} />
         <Route path="/login" element={<Layout><Login /></Layout>} />
+        <Route path="/order-confirmation/:orderId" element={<Layout><OrderConfirmation /></Layout>} />
       </Routes>
     </Router>
   );

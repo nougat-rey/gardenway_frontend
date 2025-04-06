@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Cart.css';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 
 const Cart = () => {
+  const navigate = useNavigate();  // Use the useNavigate hook
   const [items, setItems] = useState([]);
   const [cartLoading, setCartLoading] = useState(true);
   const [cartError, setCartError] = useState(null);
@@ -69,6 +71,33 @@ const Cart = () => {
     }
   };
 
+  const submitOrder = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/store/orders/',
+        { cart_id: cartId },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+  
+      // If the order is successfully submitted, clear the cartId from localStorage
+      localStorage.removeItem('cartId');
+      setItems([]);  // Clear the cart state
+      
+      // Redirect to Order Confirmation page with order details
+      const orderId = response.data.id; 
+      navigate(`/order-confirmation/${orderId}`);  // Use navigate instead of history.push()
+      
+    } catch (error) {
+      console.error('Failed to submit order:', error);
+      alert('Failed to submit order. Please try again.');
+    }
+  };
+  
   const subtotal = items.reduce((acc, item) => acc + item.total_price, 0);
   const subtotalWithTax = items.reduce((acc, item) => acc + item.total_price_with_tax, 0);
 
@@ -117,6 +146,11 @@ const Cart = () => {
             <hr />
             <div><strong>Subtotal:</strong> ${subtotal.toFixed(2)}</div>
             <div><strong>Subtotal with Tax:</strong> ${subtotalWithTax.toFixed(2)}</div>
+          </div>
+          <div className="submit-order-section">
+            <button className="submit-order-btn" onClick={submitOrder} disabled={items.length === 0}>
+              Submit Order
+            </button>
           </div>
         </>
       )}
