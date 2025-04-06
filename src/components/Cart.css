@@ -17,4 +17,10 @@
     border-bottom: 1px solid #ccc;
     padding: 12px 0;
   }
-  
+ 
+  .cart-subtotal {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.1rem;
+    color: #2a4d30;
+  }
