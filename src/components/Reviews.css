@@ -72,11 +72,10 @@
   font-weight: 600;
   color: #2f3e2e;
   margin-top: 10px;
-  transition: color 0.3s ease;
 }
 
 .product-link:hover .product-title {
-  color: #5e7c5b;
+  color: #1f2c1f;
   text-decoration: none;
 }
 
