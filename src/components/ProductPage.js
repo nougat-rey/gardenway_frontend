@@ -2,23 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import './ProductPage.css';
-import { addToCart } from '../utils/cartUtils'; 
+import { addToCart } from '../utils/cartUtils';
 
 const ProductPage = () => {
-  const { id } = useParams(); // Grab the id from the URL parameters
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [productCollection, setProductCollection] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Quantity state
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    setLoading(true); // Start loading whenever the component re-renders
-
-    // Fetch product details
+    setLoading(true);
     axios
-      .get(`http://localhost:8000/store/products/${id}/`) // Use the id from the URL
+      .get(`http://localhost:8000/store/products/${id}/`)
       .then((response) => {
         setProduct(response.data);
         setLoading(false);
@@ -28,7 +26,6 @@ const ProductPage = () => {
         setLoading(false);
       });
 
-    // Fetch collections data
     axios
       .get("http://localhost:8000/store/collections/")
       .then((response) => {
@@ -37,10 +34,9 @@ const ProductPage = () => {
       .catch((err) => {
         setError("Failed to fetch collections");
       });
-  }, [id]); // Only refetch when the id changes (for example, when navigating to a different product)
+  }, [id]);
 
   useEffect(() => {
-    // Determine the collection for the product
     if (product && collections.length > 0) {
       const collection = collections.find((col) =>
         col.products.includes(product.id)
@@ -51,7 +47,7 @@ const ProductPage = () => {
 
   const handleQuantityChange = (e) => {
     const newQuantity = Math.max(1, Math.min(e.target.value, product.inventory));
-    setQuantity(newQuantity); // Update quantity while preventing over-buying
+    setQuantity(newQuantity);
   };
 
   const handleAddToCart = async () => {
@@ -61,35 +57,27 @@ const ProductPage = () => {
         alert("You must be logged in to add to cart.");
         return;
       }
-  
-      // Step 1: Get customer ID if not already cached
+
       let customerId = localStorage.getItem('customerId');
       if (!customerId) {
         const customerRes = await axios.get('http://localhost:8000/store/customers/me/', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
         customerId = customerRes.data.id;
         localStorage.setItem('customerId', customerId);
       }
-  
-      // Step 2: Check/create cart
+
       let cartId = localStorage.getItem('cartId');
       if (!cartId) {
         const cartRes = await axios.post('http://localhost:8000/store/carts/', {
           customer: customerId,
         }, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
-  
         cartId = cartRes.data.id;
         localStorage.setItem('cartId', cartId);
       }
-  
-      // Step 3: Add item to cart
+
       await axios.post(
         `http://localhost:8000/store/carts/${cartId}/items/`,
         {
@@ -97,26 +85,23 @@ const ProductPage = () => {
           quantity: quantity,
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         }
       );
-  
+
       alert(`Added ${quantity} ${product.title} to your cart!`);
     } catch (err) {
       console.error("Failed to add to cart:", err);
       alert("Something went wrong while adding to cart.");
     }
   };
-  
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading message while data is being fetched
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>; // Show error message if there was an issue
+    return <div>{error}</div>;
   }
 
   return (
@@ -127,13 +112,12 @@ const ProductPage = () => {
             <img
               src={product.images[0]?.image}
               alt={product.title}
-              onError={(e) => (e.target.src = "http://localhost:3000/banner.png")} // Fallback image
+              onError={(e) => (e.target.src = "http://localhost:3000/banner.png")}
             />
           </div>
           <div className="product-details">
             {productCollection && productCollection.title && (
               <div className="product-collection">
-                {/* Wrap the collection text with a Link */}
                 <Link to={`/collection/${productCollection.id}`} className="collection-link">
                   {productCollection.title}
                 </Link>
@@ -142,13 +126,6 @@ const ProductPage = () => {
             <div className="product-title">{product.title}</div>
             <div className="product-price">Price: ${product.price}</div>
 
-            {/* Removed Inventory section */}
-            {/* <div className="product-inventory">Inventory: {product.inventory}</div> */}
-
-            {/* Removed Price with Tax */}
-            {/* <div className="product-tax">Price with Tax: ${product.price_with_tax}</div> */}
-
-            {/* Quantity Selector */}
             <div className="quantity-selector">
               <label htmlFor="quantity">Quantity: </label>
               <input
@@ -161,17 +138,20 @@ const ProductPage = () => {
               />
             </div>
 
-            <button className="add-to-cart" onClick={handleAddToCart}>
-              Add {quantity} to Cart
+            <button
+              className="add-to-cart-btn"
+              onClick={handleAddToCart}
+              disabled={quantity <= 0}
+            >
+              <i className="fas fa-cart-plus icon"></i>
+              <i className="fas fa-arrow-right icon"></i>
             </button>
           </div>
         </div>
       )}
 
-      {/* Divider between product details and reviews */}
       <div className="divider"></div>
 
-      {/* Reviews Section */}
       <div className="product-reviews">
         <h3>Reviews</h3>
         {product.reviews && product.reviews.length > 0 ? (
