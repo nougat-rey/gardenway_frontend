@@ -5,7 +5,7 @@ main {
     align-items: center;
     gap: 20px;
     padding: 50px;
-    background-color: #C1D8C5;
+    background-color: #D8C9A3;
     opacity: 0;
     transform: translateY(30px);
     animation: cardSlideInUp 1s ease-out forwards;
