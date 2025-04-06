@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Auth.css';
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
       const data = await response.json();
       localStorage.setItem('access', data.access);
       localStorage.setItem('refresh', data.refresh);
-      navigate('/'); // Redirect to homepage after login
+      navigate('/');
     } catch (error) {
       setError('Invalid username or password');
     }
@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <h2>Login</h2>
-      {error && <p className="auth-error">{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
           type="text"
@@ -52,6 +52,11 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <div style={{ marginTop: '15px' }}>
+        <Link to="/register" style={{ fontSize: '14px', textDecoration: 'none', color: '#2F4F4F' }}>
+          Create account
+        </Link>
+      </div>
     </div>
   );
 };

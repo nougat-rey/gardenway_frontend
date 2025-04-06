@@ -39,3 +39,19 @@
     margin-bottom: 10px;
   }
   
+  .auth-register-link {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .auth-register-link a {
+    color: #2F4F4F;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .auth-register-link a:hover {
+    text-decoration: underline;
+  }
+   

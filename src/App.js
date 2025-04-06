@@ -15,6 +15,7 @@ import ProductPage from './components/ProductPage';
 import Collections from './components/Collections';
 import Orders from './components/Orders';
 import OrderConfirmation from './components/OrderConfirmation';
+import Register from './components/Register';
 
 // Layout will be used to wrap the pages with header and footer
 import Layout from './components/Layout';
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/login" element={<Layout><Login /></Layout>} />
         <Route path="/order-confirmation/:orderId" element={<Layout><OrderConfirmation /></Layout>} />
         <Route path="/orders" element={<Layout><Orders /></Layout>} />
+        <Route path="/register" element={<Layout><Register /></Layout>} />
       </Routes>
     </Router>
   );
