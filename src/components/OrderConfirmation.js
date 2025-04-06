@@ -111,11 +111,6 @@ const OrderConfirmation = () => {
           ))}
         </ul>
       </div>
-
-      <div className="order-actions">
-        <button className="action-btn">View Order</button>
-        <button className="action-btn">Shop More</button>
-      </div>
     </div>
   );
 };
