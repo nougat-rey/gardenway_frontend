@@ -7,45 +7,32 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [productDetails, setProductDetails] = useState({});
+  const [products, setProducts] = useState([]);
 
   const token = localStorage.getItem('access');
 
   useEffect(() => {
-    const fetchOrders = async () => {
+    const fetchOrdersAndProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/store/orders/', {
+        // Fetch orders
+        const ordersResponse = await axios.get('http://localhost:8000/store/orders/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        setOrders(response.data);
+        setOrders(ordersResponse.data);
 
-        // Fetch product details for each item in each order
-        const productRequests = response.data.flatMap((order) =>
-          order.items.map((item) =>
-            axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
-          )
-        );
-
-        // Fetch all product details concurrently
-        const productResponses = await Promise.all(productRequests);
-
-        // Store the product details by product ID
-        const productData = productResponses.reduce((acc, res) => {
-          acc[res.data.id] = res.data;
-          return acc;
-        }, {});
-
-        setProductDetails(productData);
+        // Fetch all product details once
+        const productsResponse = await axios.get('http://localhost:8000/store/products/');
+        setProducts(productsResponse.data);
       } catch (err) {
-        setError('Failed to fetch orders.');
+        setError('Failed to fetch orders or products.');
       } finally {
         setLoading(false);
       }
     };
 
-    if (token) fetchOrders();
+    if (token) fetchOrdersAndProducts();
     else {
       setError('You must be logged in to view your orders.');
       setLoading(false);
@@ -55,6 +42,11 @@ const Orders = () => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+  };
+
+  // Function to find product details by ID
+  const getProductById = (id) => {
+    return products.find((product) => product.id === id);
   };
 
   if (loading) return <div className="orders-container">Loading orders...</div>;
@@ -80,8 +72,8 @@ const Orders = () => {
               <div className="order-items">
                 {order.items && order.items.length > 0 ? (
                   order.items.map((item) => {
-                    const product = productDetails[item.product.id]; // Get product details from the state
-                    const unitPrice = product?.price || 0; // Use price instead of unit_price
+                    const product = getProductById(item.product.id); // Get product details from the products list
+                    const unitPrice = product?.price || 0;
                     const totalPrice = unitPrice * item.quantity;
 
                     return (
