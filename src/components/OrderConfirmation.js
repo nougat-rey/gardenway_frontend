@@ -8,6 +8,7 @@ const OrderConfirmation = () => {
   const [orderDetails, setOrderDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [productDetails, setProductDetails] = useState({});
 
   // Retrieve the token from localStorage
   const token = localStorage.getItem('access');
@@ -19,18 +20,36 @@ const OrderConfirmation = () => {
           `http://localhost:8000/store/orders/${orderId}/`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,  // Include the token in the Authorization header
+              Authorization: `Bearer ${token}`,
             },
           }
         );
         setOrderDetails(response.data);
         setLoading(false);
+  
+        // Fetch the product details for each item in the order
+        const productRequests = response.data.items.map((item) =>
+          axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
+        );
+  
+        // Wait for all product requests to complete
+        const productResponses = await Promise.all(productRequests);
+  
+        // Map the product details to the order items
+        const productData = productResponses.reduce((acc, curr, idx) => {
+          const product = curr.data; // Access the product data correctly
+          acc[product.id] = product; // Use the product.id as the key
+          return acc;
+        }, {});
+  
+        setProductDetails(productData); // Store product details in state
       } catch (err) {
+        console.error('Error fetching order details:', err);
         setError('Failed to fetch order details');
         setLoading(false);
       }
     };
-
+  
     if (orderId && token) {
       fetchOrderDetails();
     } else {
@@ -69,8 +88,19 @@ const OrderConfirmation = () => {
           {orderDetails.items.map((item) => (
             <li key={item.id} className="order-item">
               <div className="order-item-image">
-                <img src={`path_to_images/${item.product.id}.jpg`} alt={item.product.title} />
+                {productDetails[item.product.id] && productDetails[item.product.id].images && productDetails[item.product.id].images[0] ? (
+                  <img
+                    src={productDetails[item.product.id].images[0].image}  // Correct image URL without prepending the base URL
+                    alt={item.product.title}
+                    onError={(e) => {
+                      e.target.src = "http://localhost:3000/banner.png";  // Fallback image
+                    }} 
+                  />
+                ) : (
+                  <div>No image available</div>
+                )}
               </div>
+
               <div className="order-item-details">
                 <div><strong>{item.product.title}</strong></div>
                 <div>Unit Price: ${item.unit_price.toFixed(2)}</div>
