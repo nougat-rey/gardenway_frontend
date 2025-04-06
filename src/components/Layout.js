@@ -62,6 +62,7 @@ const Layout = ({ children }) => {
   }, [searchQuery, products]);
 
   const handleLogout = () => {
+    localStorage.removeItem('cartId');
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
     setIsAuthenticated(false);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom"; // Import Link here
-import './ProductPage.css'; // Import the CSS file
+import { useParams, Link } from "react-router-dom";
+import './ProductPage.css';
+import { addToCart } from '../utils/cartUtils'; 
 
 const ProductPage = () => {
   const { id } = useParams(); // Grab the id from the URL parameters
@@ -53,10 +54,62 @@ const ProductPage = () => {
     setQuantity(newQuantity); // Update quantity while preventing over-buying
   };
 
-  const handleAddToCart = () => {
-    // Handle Add to Cart logic (e.g., saving to local storage, state, or backend)
-    alert(`Added ${quantity} ${product.title} to your cart!`);
+  const handleAddToCart = async () => {
+    try {
+      const token = localStorage.getItem('access');
+      if (!token) {
+        alert("You must be logged in to add to cart.");
+        return;
+      }
+  
+      // Step 1: Get customer ID if not already cached
+      let customerId = localStorage.getItem('customerId');
+      if (!customerId) {
+        const customerRes = await axios.get('http://localhost:8000/store/customers/me/', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        customerId = customerRes.data.id;
+        localStorage.setItem('customerId', customerId);
+      }
+  
+      // Step 2: Check/create cart
+      let cartId = localStorage.getItem('cartId');
+      if (!cartId) {
+        const cartRes = await axios.post('http://localhost:8000/store/carts/', {
+          customer: customerId,
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+  
+        cartId = cartRes.data.id;
+        localStorage.setItem('cartId', cartId);
+      }
+  
+      // Step 3: Add item to cart
+      await axios.post(
+        `http://localhost:8000/store/carts/${cartId}/items/`,
+        {
+          product_id: product.id,
+          quantity: quantity,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      alert(`Added ${quantity} ${product.title} to your cart!`);
+    } catch (err) {
+      console.error("Failed to add to cart:", err);
+      alert("Something went wrong while adding to cart.");
+    }
   };
+  
 
   if (loading) {
     return <div>Loading...</div>; // Show loading message while data is being fetched
