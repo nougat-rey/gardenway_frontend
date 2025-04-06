@@ -144,3 +144,59 @@ body {
     max-width: 100%;
   }
 }
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.qty-btn {
+  background-color: #e3e3e3;
+  border: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Add to Cart Button with Icon */
+.add-to-cart-btn {
+  background-color: #2A4D30;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn .icon {
+  margin-right: 8px; /* Space between the icon and text */
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background-color: #234026;
+}
+
+.add-to-cart-btn:disabled {
+  background-color: #e3e3e3;
+  cursor: not-allowed;
+}
