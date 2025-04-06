@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Import pages/components
 import Login from './components/Login';
@@ -12,7 +13,7 @@ import Profile from './components/Profile';
 import Reviews from './components/Reviews';
 import ProductPage from './components/ProductPage';
 import Collections from './components/Collections';
-import 'font-awesome/css/font-awesome.min.css';
+import Orders from './components/Orders';
 import OrderConfirmation from './components/OrderConfirmation';
 
 // Layout will be used to wrap the pages with header and footer
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/collection/:id" element={<Layout><Collections /></Layout>} />
         <Route path="/login" element={<Layout><Login /></Layout>} />
         <Route path="/order-confirmation/:orderId" element={<Layout><OrderConfirmation /></Layout>} />
+        <Route path="/orders" element={<Layout><Orders /></Layout>} />
       </Routes>
     </Router>
   );
