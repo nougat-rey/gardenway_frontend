@@ -106,7 +106,6 @@ const OrderConfirmation = () => {
                 <div>Unit Price: ${item.unit_price.toFixed(2)}</div>
                 <div>Quantity: {item.quantity}</div>
                 <div>Total: ${item.total_price.toFixed(2)}</div>
-                <div>Total with Tax: ${item.total_price_with_tax.toFixed(2)}</div>
               </div>
             </li>
           ))}

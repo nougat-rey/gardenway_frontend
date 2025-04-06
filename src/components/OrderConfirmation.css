@@ -21,7 +21,7 @@
   }
   
   .order-id {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: #777;
     margin-bottom: 5px;
   }
@@ -79,7 +79,7 @@
   }
   
   .action-btn {
-    background-color: #007bff;
+    background-color: #5c776f;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -91,14 +91,14 @@
   }
   
   .action-btn:hover {
-    background-color: #0056b3;
+    background-color: #3f514b;
   }
   
   .order-actions .action-btn:first-child {
-    background-color: #28a745;
+    background-color: #2F4F4F;
   }
   
   .order-actions .action-btn:first-child:hover {
-    background-color: #218838;
+    background-color: #1c2f2f;
   }
   
