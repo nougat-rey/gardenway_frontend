@@ -38,14 +38,17 @@ const Shop = () => {
       { threshold: 0.1 }
     );
 
-    productRefs.current.forEach((card, index) => {
+    // Store refs in a variable to avoid direct access in the cleanup
+    const refs = productRefs.current;
+
+    refs.forEach((card) => {
       if (card) {
         observer.observe(card);
       }
     });
 
     return () => {
-      productRefs.current.forEach((card, index) => {
+      refs.forEach((card) => {
         if (card) {
           observer.unobserve(card);
         }
@@ -130,27 +133,20 @@ const Shop = () => {
             className={`shop-card ${visibleCards.has(String(product.id)) ? 'fade-in' : ''}`}
           >
             <div className="shop-image">
-              {product.images.length > 0 ? (
-                <img
-                  src={buildImageUrl(product.images[0].image)}
-                  alt={product.title}
-                  onError={(e) => {
-                    e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`;
-                  }}
-                />
-              ) : (
-                <img src={`${process.env.REACT_APP_ASSET_URL}/banner.png`} alt="Default" />
-              )}
+              <img
+                src={buildImageUrl(product.images[0].image)}
+                alt={product.title}
+                onError={(e) => {
+                  e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`; // Fallback image
+                }}
+              />
             </div>
             <div className="shop-info">
-              {/* Make the product title a clickable link */}
               <Link to={`/product/${product.id}`} className="shop-title">
                 {product.title}
               </Link>
               <div className="shop-price">${product.price}</div>
               <div className="shop-inventory">In Stock: {product.inventory}</div>
-
-              {/* Quantity Control */}
               <div className="quantity-control">
                 <button
                   onClick={() => handleQuantityChange(product.id, -1)}
@@ -168,7 +164,6 @@ const Shop = () => {
                   +
                 </button>
                 
-                {/* Inline Add to Cart Button */}
                 <button
                   className="add-to-cart-btn"
                   onClick={() => handleAddToCart(product.id, quantity[product.id] || 0)}
