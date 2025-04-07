@@ -19,22 +19,21 @@ const Layout = ({ children }) => {
         setIsAuthenticated(false);
         return;
       }
-  
+
       try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/jwt/verify/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ token }),
         });
-  
+
         if (response.ok) {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
           localStorage.removeItem('access');
           localStorage.removeItem('refresh');
-  
-          // Redirect only if currently on a protected route
+
           const protectedPaths = ['/profile', '/orders'];
           if (protectedPaths.includes(window.location.pathname)) {
             navigate('/login');
@@ -43,17 +42,17 @@ const Layout = ({ children }) => {
       } catch (error) {
         console.error('Token verification error:', error);
         setIsAuthenticated(false);
-  
+
         const protectedPaths = ['/profile', '/orders'];
         if (protectedPaths.includes(window.location.pathname)) {
           navigate('/login');
         }
       }
     };
-  
+
     verifyToken();
   }, [navigate]);
-  
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/store/products/`)
       .then(response => response.json())
@@ -125,7 +124,7 @@ const Layout = ({ children }) => {
           </div>
 
           {isAuthenticated ? (
-            <div className="profile-dropdown" ref={dropdownRef}>
+            <div className="profile-dropdown-container" ref={dropdownRef}>
               <i
                 className="fa fa-user"
                 aria-hidden="true"

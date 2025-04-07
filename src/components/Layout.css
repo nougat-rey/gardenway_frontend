@@ -58,14 +58,52 @@ body {
 
 /* Icon Styling for Cart and Profile Links */
 .header .nav a i {
-    font-size: 22px;  /* Icon size */
-    margin-right: 8px;  /* Space between icon and link text */
+    font-size: 22px;
+    margin-right: 8px;
+    color: #f8f5e1;  /* Set color explicitly */
+  }
+
+.profile-dropdown-container {
+  position: relative; /* Ensure the dropdown is positioned relative to the profile icon */
 }
 
-/* Hover effects for header links */
-.header .nav a:hover {
-    text-decoration: underline;
-    color: #A0B99D;  /* Soft Sage Green */
+.profile-dropdown-container i {
+    font-size: 22px;
+    margin-right: 8px;
+    color: #f8f5e1;  /* Set color explicitly */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 140%;  /* Position the dropdown directly below the profile icon */
+  right: 0;    /* Ensure the dropdown aligns to the left of the icon */
+  background-color: #2F4F4F;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: max-content; /* Adjust width to fit content, prevents stretching */
+}
+
+.dropdown-menu li {
+  padding: 8px;
+  cursor: pointer;
+  color: #f8f5e1;
+  font-size: 14px;
+}
+
+/* Link styles inside the dropdown */
+.dropdown-menu li a {
+  text-decoration: none;
+  color: inherit; /* Use the current color of the list item */
+}
+
+/* Hover effect for links inside dropdown */
+.dropdown-menu li a:hover {
+  color: #A0B99D;
 }
 
 /* Search bar */
