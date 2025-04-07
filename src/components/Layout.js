@@ -54,8 +54,6 @@ const Layout = ({ children }) => {
     verifyToken();
   }, [navigate]);
   
-  
-
   useEffect(() => {
     fetch('http://localhost:8000/store/products/')
       .then(response => response.json())
