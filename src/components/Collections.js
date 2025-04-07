@@ -164,11 +164,11 @@ const Collections = () => {
                   alt={product.title}
                   onError={(e) => {
                     console.error(`Image failed to load: ${e.target.src}`);
-                    e.target.src = 'http://localhost:3000/banner.png'; // Fallback image
+                    e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`; // Fallback image
                   }}
                 />
               ) : (
-                <img src="http://localhost:3000/banner.png" alt="Default" />
+                <img src={`${process.env.REACT_APP_ASSET_URL}/banner.png`} alt="Default" />
               )}
             </div>
             <div className="collection-info">

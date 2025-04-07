@@ -112,7 +112,7 @@ const ProductPage = () => {
             <img
               src={product.images[0]?.image}
               alt={product.title}
-              onError={(e) => (e.target.src = "http://localhost:3000/banner.png")}
+              onError={(e) => (e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`)}
             />
           </div>
           <div className="product-details">

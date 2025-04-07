@@ -93,7 +93,7 @@ const OrderConfirmation = () => {
                     src={productDetails[item.product.id].images[0].image}  // Correct image URL without prepending the base URL
                     alt={item.product.title}
                     onError={(e) => {
-                      e.target.src = "http://localhost:3000/banner.png";  // Fallback image
+                      e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`;  // Fallback image
                     }} 
                   />
                 ) : (

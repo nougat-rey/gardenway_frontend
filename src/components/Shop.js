@@ -135,11 +135,11 @@ const Shop = () => {
                   src={buildImageUrl(product.images[0].image)}
                   alt={product.title}
                   onError={(e) => {
-                    e.target.src = 'http://localhost:3000/banner.png';
+                    e.target.src = `${process.env.REACT_APP_ASSET_URL}/banner.png`;
                   }}
                 />
               ) : (
-                <img src="http://localhost:3000/banner.png" alt="Default" />
+                <img src={`${process.env.REACT_APP_ASSET_URL}/banner.png`} alt="Default" />
               )}
             </div>
             <div className="shop-info">
