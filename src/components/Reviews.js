@@ -8,7 +8,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/store/products/')
+      .get(`${process.env.REACT_APP_API_URL}/store/products/`)
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("There was an error fetching the data:", error));
   }, []);

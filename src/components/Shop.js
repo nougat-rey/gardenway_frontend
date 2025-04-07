@@ -12,7 +12,7 @@ const Shop = () => {
 
   useEffect(() => {
     if (!isFetched) {
-      axios.get('http://localhost:8000/store/products/')
+      axios.get(`${process.env.REACT_APP_API_URL}/store/products/`)
         .then(response => {
           setProducts(response.data);
           const initialQuantities = response.data.reduce((acc, product) => {
@@ -54,12 +54,12 @@ const Shop = () => {
   }, [isFetched]);
 
   const buildImageUrl = (imagePath) => {
-    if (imagePath.startsWith('http://localhost:8000/media/')) {
+    if (imagePath.startsWith(`${process.env.REACT_APP_API_URL}/media/`)) {
       return imagePath;
     } else if (imagePath.startsWith('/media/')) {
-      return `http://localhost:8000${imagePath}`;
+      return `${process.env.REACT_APP_API_URL}${imagePath}`;
     } else {
-      return `http://localhost:8000/media/${imagePath}`;
+      return `${process.env.REACT_APP_API_URL}/media/${imagePath}`;
     }
   };
 
@@ -73,7 +73,7 @@ const Shop = () => {
 
       let customerId = localStorage.getItem('customerId');
       if (!customerId) {
-        const customerRes = await axios.get('http://localhost:8000/store/customers/me/', {
+        const customerRes = await axios.get(`${process.env.REACT_APP_API_URL}/store/customers/me/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         customerId = customerRes.data.id;
@@ -82,7 +82,7 @@ const Shop = () => {
 
       let cartId = localStorage.getItem('cartId');
       if (!cartId) {
-        const cartRes = await axios.post('http://localhost:8000/store/carts/', {
+        const cartRes = await axios.post(`${process.env.REACT_APP_API_URL}/store/carts/`, {
           customer: customerId,
         }, {
           headers: { Authorization: `Bearer ${token}` },
@@ -93,7 +93,7 @@ const Shop = () => {
       }
 
       await axios.post(
-        `http://localhost:8000/store/carts/${cartId}/items/`,
+        `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/`,
         {
           product_id: productId,
           quantity: quantity,

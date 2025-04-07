@@ -17,7 +17,7 @@ const OrderConfirmation = () => {
     const fetchOrderDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/store/orders/${orderId}/`,
+          `${process.env.REACT_APP_API_URL}/store/orders/${orderId}/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const OrderConfirmation = () => {
   
         // Fetch the product details for each item in the order
         const productRequests = response.data.items.map((item) =>
-          axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
+          axios.get(`${process.env.REACT_APP_API_URL}/store/products/${item.product.id}/`)
         );
   
         // Wait for all product requests to complete

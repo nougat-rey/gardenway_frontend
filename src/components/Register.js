@@ -26,7 +26,7 @@ const Register = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/auth/users/', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/users/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -18,14 +18,14 @@ const Profile = () => {
         }
 
         const [userDataResponse, customerDataResponse] = await Promise.all([
-          fetch('http://localhost:8000/auth/users/me/', {
+          fetch(`${process.env.REACT_APP_API_URL}/auth/users/me/`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
             },
           }),
-          fetch('http://localhost:8000/store/customers/me/', {
+          fetch(`${process.env.REACT_APP_API_URL}/store/customers/me/`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

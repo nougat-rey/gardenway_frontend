@@ -11,7 +11,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const response = await fetch('http://localhost:8000/store/collections/');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/store/collections/`);
         const data = await response.json();
         setCollections(data); // Store the collections in state
       } catch (error) {

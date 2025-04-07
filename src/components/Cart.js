@@ -23,7 +23,7 @@ const Cart = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8000/store/carts/${cartId}/items/`,
+          `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -32,7 +32,7 @@ const Cart = () => {
 
         // Fetch product details for each item
         const productRequests = response.data.map((item) =>
-          axios.get(`http://localhost:8000/store/products/${item.product.id}/`)
+          axios.get(`${process.env.REACT_APP_API_URL}/store/products/${item.product.id}/`)
         );
 
         const productResponses = await Promise.all(productRequests);
@@ -59,7 +59,7 @@ const Cart = () => {
 
     try {
       await axios.patch(
-        `http://localhost:8000/store/carts/${cartId}/items/${itemId}/`,
+        `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/${itemId}/`,
         { quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -77,7 +77,7 @@ const Cart = () => {
   const deleteItem = async (itemId) => {
     try {
       await axios.delete(
-        `http://localhost:8000/store/carts/${cartId}/items/${itemId}/`,
+        `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/${itemId}/`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setItems(prev => prev.filter(item => item.id !== itemId));
@@ -89,7 +89,7 @@ const Cart = () => {
   const submitOrder = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/store/orders/',
+        `${process.env.REACT_APP_API_URL}/store/orders/`,
         { cart_id: cartId },
         {
           headers: {

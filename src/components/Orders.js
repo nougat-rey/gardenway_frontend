@@ -15,7 +15,7 @@ const Orders = () => {
     const fetchOrdersAndProducts = async () => {
       try {
         // Fetch orders
-        const ordersResponse = await axios.get('http://localhost:8000/store/orders/', {
+        const ordersResponse = await axios.get(`${process.env.REACT_APP_API_URL}/store/orders/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -23,7 +23,7 @@ const Orders = () => {
         setOrders(ordersResponse.data);
 
         // Fetch all product details once
-        const productsResponse = await axios.get('http://localhost:8000/store/products/');
+        const productsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/store/products/`);
         setProducts(productsResponse.data);
       } catch (err) {
         setError('Failed to fetch orders or products.');

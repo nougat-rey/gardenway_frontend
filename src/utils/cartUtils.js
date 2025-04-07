@@ -6,7 +6,7 @@ export const getOrCreateCart = async () => {
   
     if (cartId) return cartId;
   
-    const response = await fetch('http://localhost:8000/store/carts/', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/store/carts/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const getOrCreateCart = async () => {
     const token = localStorage.getItem('access');
     const cartId = await getOrCreateCart();
   
-    const response = await fetch(`http://localhost:8000/store/carts/${cartId}/items/`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

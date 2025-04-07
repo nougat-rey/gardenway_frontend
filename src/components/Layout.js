@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
       }
   
       try {
-        const response = await fetch('http://localhost:8000/auth/jwt/verify/', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/jwt/verify/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ token }),
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
   }, [navigate]);
   
   useEffect(() => {
-    fetch('http://localhost:8000/store/products/')
+    fetch(`${process.env.REACT_APP_API_URL}/store/products/`)
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

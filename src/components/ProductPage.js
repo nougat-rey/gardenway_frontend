@@ -16,7 +16,7 @@ const ProductPage = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:8000/store/products/${id}/`)
+      .get(`${process.env.REACT_APP_API_URL}/store/products/${id}/`)
       .then((response) => {
         setProduct(response.data);
         setLoading(false);
@@ -27,7 +27,7 @@ const ProductPage = () => {
       });
 
     axios
-      .get("http://localhost:8000/store/collections/")
+      .get(`${process.env.REACT_APP_API_URL}/store/collections/`)
       .then((response) => {
         setCollections(response.data);
       })
@@ -60,7 +60,7 @@ const ProductPage = () => {
 
       let customerId = localStorage.getItem('customerId');
       if (!customerId) {
-        const customerRes = await axios.get('http://localhost:8000/store/customers/me/', {
+        const customerRes = await axios.get(`${process.env.REACT_APP_API_URL}/store/customers/me/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         customerId = customerRes.data.id;
@@ -69,7 +69,7 @@ const ProductPage = () => {
 
       let cartId = localStorage.getItem('cartId');
       if (!cartId) {
-        const cartRes = await axios.post('http://localhost:8000/store/carts/', {
+        const cartRes = await axios.post(`${process.env.REACT_APP_API_URL}/store/carts/`, {
           customer: customerId,
         }, {
           headers: { Authorization: `Bearer ${token}` },
@@ -79,7 +79,7 @@ const ProductPage = () => {
       }
 
       await axios.post(
-        `http://localhost:8000/store/carts/${cartId}/items/`,
+        `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/`,
         {
           product_id: product.id,
           quantity: quantity,

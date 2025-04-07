@@ -14,7 +14,7 @@ const Collections = () => {
 
   useEffect(() => {
     if (!isFetched) {
-      axios.get(`http://localhost:8000/store/collections/${id}/`)
+      axios.get(`${process.env.REACT_APP_API_URL}/store/collections/${id}/`)
         .then(response => {
           const collectionData = response.data;
           setCollection(collectionData);
@@ -22,7 +22,7 @@ const Collections = () => {
           // Fetch the products based on the product IDs returned by the collection
           const productIds = collectionData.products;
           const productRequests = productIds.map(productId =>
-            axios.get(`http://localhost:8000/store/products/${productId}/`)
+            axios.get(`${process.env.REACT_APP_API_URL}/store/products/${productId}/`)
           );
 
           // Fetch all products concurrently
@@ -76,12 +76,12 @@ const Collections = () => {
   }, [id, isFetched]); // Trigger effect when the collection ID or fetch status changes
 
   const buildImageUrl = (imagePath) => {
-    if (imagePath.startsWith('http://localhost:8000/media/')) {
+    if (imagePath.startsWith(`${process.env.REACT_APP_API_URL}/media/`)) {
       return imagePath;
     } else if (imagePath.startsWith('/media/')) {
-      return `http://localhost:8000${imagePath}`;
+      return `${process.env.REACT_APP_API_URL}${imagePath}`;
     } else {
-      return `http://localhost:8000/media/${imagePath}`;
+      return `${process.env.REACT_APP_API_URL}/media/${imagePath}`;
     }
   };
 
@@ -105,7 +105,7 @@ const Collections = () => {
 
       let customerId = localStorage.getItem('customerId');
       if (!customerId) {
-        const customerRes = await axios.get('http://localhost:8000/store/customers/me/', {
+        const customerRes = await axios.get(`${process.env.REACT_APP_API_URL}/store/customers/me/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         customerId = customerRes.data.id;
@@ -114,7 +114,7 @@ const Collections = () => {
 
       let cartId = localStorage.getItem('cartId');
       if (!cartId) {
-        const cartRes = await axios.post('http://localhost:8000/store/carts/', {
+        const cartRes = await axios.post(`${process.env.REACT_APP_API_URL}/store/carts/`, {
           customer: customerId,
         }, {
           headers: { Authorization: `Bearer ${token}` },
@@ -125,7 +125,7 @@ const Collections = () => {
       }
 
       await axios.post(
-        `http://localhost:8000/store/carts/${cartId}/items/`,
+        `${process.env.REACT_APP_API_URL}/store/carts/${cartId}/items/`,
         {
           product_id: productId,
           quantity: quantity,
