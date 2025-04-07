@@ -84,7 +84,7 @@ const Collections = () => {
     } else if (imagePath.startsWith('/media/')) {
       return `${process.env.REACT_APP_API_URL}${imagePath}`;
     } else {
-      return `${process.env.REACT_APP_API_URL}/media/${imagePath}`;
+      return `${imagePath}`;
     }
   };
 
