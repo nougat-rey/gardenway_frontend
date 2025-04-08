@@ -24,52 +24,52 @@ const AboutUs = () => {
         <div className="gallery-grid">
           {/* Displaying all images from /public/images */}
           <div className="photo-item">
-            <img src="/images/20190928_8.jpg" alt="Travel 1" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081424/20190928_8_iwhri9.jpg'} alt="Travel 1" />
           </div>
           <div className="photo-item">
-            <img src="/images/20230909_124446.jpg" alt="Travel 2" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081394/20190930_5_rgibsn.jpg'} alt="Travel 2" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240502_171742.jpg" alt="Travel 3" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081393/20191006_07_o6dyu0.jpg'} alt="Travel 3" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240905_142945.jpg" alt="Travel 4" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081415/20230509_134641_rdx5x3.jpg'} alt="Travel 4" />
           </div>
           <div className="photo-item">
-            <img src="/images/IMG_2682.JPG" alt="Travel 5" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081399/20230909_124446_bm1vpj.jpg'} alt="Travel 5" />
           </div>
           <div className="photo-item">
-            <img src="/images/20190930_5.jpg" alt="Travel 6" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081427/20240429_085038_bajt8i.jpg'} alt="Travel 6" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240429_085038.jpg" alt="Travel 7" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081423/20240429_100129_eur5wz.jpg'} alt="Travel 7" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240901_183915.jpg" alt="Travel 8" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081422/20240502_095312_ggjqvs.jpg'} alt="Travel 8" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240908_133542.jpg" alt="Travel 9" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081406/20240502_171742_lk4cyr.jpg'} alt="Travel 9" />
           </div>
           <div className="photo-item">
-            <img src="/images/20191006_07.jpg" alt="Travel 10" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081426/20240901_183915_q2gdbm.jpg'} alt="Travel 10" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240429_100129.jpg" alt="Travel 11" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081410/20240901_184011_hjn3m2.jpg'} alt="Travel 11" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240901_184011.jpg" alt="Travel 12" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081404/20240904_164558_hczdxx.jpg'} alt="Travel 12" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240914_094020.jpg" alt="Travel 13" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081405/20240905_142945_cegb1w.jpg'} alt="Travel 13" />
           </div>
           <div className="photo-item">
-            <img src="/images/20230509_134641.jpg" alt="Travel 14" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081415/20240908_133542_cf3f7b.jpg'} alt="Travel 14" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240502_095312.jpg" alt="Travel 15" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081427/20240914_094020_ouhohq.jpg'} alt="Travel 15" />
           </div>
           <div className="photo-item">
-            <img src="/images/20240904_164558.jpg" alt="Travel 16" />
+            <img src={'https://res.cloudinary.com/dkyble7hi/image/upload/v1744081431/IMG_2682_ab8ybz.jpg'} alt="Travel 16" />
           </div>
         </div>
       </div>
