@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 
 // Import pages/components
@@ -20,9 +20,44 @@ import Register from './components/Register';
 // Layout will be used to wrap the pages with header and footer
 import Layout from './components/Layout';
 
+const RouteTitleUpdater = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const titles = {
+      '/about': 'About Us',
+      '/contact': 'Contact',
+      '/shop': 'Shop',
+      '/cart': 'Your Cart',
+      '/profile': 'Your Profile',
+      '/reviews': 'Reviews',
+      '/login': 'Login',
+      '/register': 'Register',
+      '/orders': 'Your Orders',
+      '/product': 'Product Details',
+      '/collection': 'Collection',
+      '/order-confirmation': 'Order Confirmation',
+      '/': 'Home',
+    };
+  
+    // Sort entries so longer paths like "/contact" come before "/"
+    const sortedEntries = Object.entries(titles).sort((a, b) => b[0].length - a[0].length);
+  
+    const matchedTitle = sortedEntries.find(([path]) =>
+      location.pathname.startsWith(path)
+    );
+  
+    document.title = matchedTitle ? matchedTitle[1] : 'Gardenway';
+  }, [location]);
+  
+
+  return null;
+};
+
 const App = () => {
   return (
     <Router>
+      <RouteTitleUpdater />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<Layout><AboutUs /></Layout>} />
