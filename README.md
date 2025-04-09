@@ -20,12 +20,12 @@ To be totally transparent, I had **extensive help from ChatGPT** in the developm
 ## Features
 
 ✅ Product and order listing with image previews  
-✅ Single product detail view
-✅ Account creation and login with JWT authentication
+✅ Single product detail view  
+✅ Account creation and login with JWT authentication  
 ✅ Add to cart functionality  
-✅ Cart page and checkout flow (mocked)
+✅ Cart page and checkout flow (mocked)  
 ✅ Live integration with backend API  
-✅ Responsive design with CSS
+✅ Responsive design with CSS  
 ✅ Deployed to Netlify
 
 ---
@@ -49,8 +49,6 @@ git clone https://github.com/nougat-rey/gardenway_frontend.git
 cd gardenway_frontend
 npm install
 ```
-
-````
 
 ### 2. Environment Variables
 
@@ -95,7 +93,7 @@ To deploy your own:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```bash
 gardenway_frontend/
@@ -125,4 +123,3 @@ Have questions or feedback?
 - [Axios](https://axios-http.com/)
 - [Netlify](https://www.netlify.com/)
 - Massive thanks to **ChatGPT** for helping bring this to life.
-````
