@@ -1,4 +1,6 @@
-![Gardenway](public/images/banner.png)
+<p align="center">
+  <img src="public/banner.png" alt="Gardenway" style="max-width: 400px; width: 100%; height: auto;" />
+</p>
 
 # Gardenway - Frontend
 
