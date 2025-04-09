@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/images/banner.png" alt="Gardenway Banner" width="400" />
+  <img src="banner.png" alt="Gardenway Banner" width="400" />
 </p>
 
 # Gardenway - Frontend
